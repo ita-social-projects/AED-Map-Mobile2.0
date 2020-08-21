@@ -1,6 +1,7 @@
 import React,{useState} from 'react';
 import {Marker} from 'react-native-maps';
 import DefPin from '../components/map-holder/components/def-pin'
+import DestPin from '../components/map-holder/components/dest-pin'
 
 
 
@@ -14,9 +15,9 @@ const useMarkers = () => {
 
     const markers = locations.map((item,index) => (<Marker
         coordinate={{longitude: item.longitude,latitude: item.latitude}}
-        key={index}
+        key={index} identifier={`${index*2}`}
         >
-                <DefPin title="Площа ринок"/>
+                <DestPin title="Площа ринок"/>
          </Marker>))
 
     return markers
