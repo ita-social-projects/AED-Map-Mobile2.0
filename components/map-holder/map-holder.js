@@ -3,10 +3,12 @@ import MapView from 'react-native-map-clustering';
 import { StyleSheet,Dimensions } from 'react-native';
 import {initialPosition} from '../../config';
 import * as Location from 'expo-location';
-import DefPins from './components/def-pins'
+import useMarkers from '../../hooks/useMarkers'
+
 
 const MapHolder = () => {
 
+  const markers = useMarkers();
   const [location,setLocation] = useState();
   const [error,setErrorMsg] = useState();
 
@@ -29,7 +31,7 @@ const MapHolder = () => {
         initialRegion={initialPosition}
         showsUserLocation={true}
         >
-          <DefPins/>
+          {markers}
         </MapView>
     )
 }
