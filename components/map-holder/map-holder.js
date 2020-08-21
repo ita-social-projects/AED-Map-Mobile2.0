@@ -1,6 +1,6 @@
 import React,{useState,useEffect} from 'react';
-import { StyleSheet,Dimensions } from 'react-native';
 import MapView from 'react-native-map-clustering';
+import { StyleSheet,Dimensions } from 'react-native';
 import {initialPosition} from '../../config';
 import * as Location from 'expo-location';
 import DefPins from './components/def-pins'
@@ -18,22 +18,16 @@ const MapHolder = () => {
       }
 
       let location = await Location.getCurrentPositionAsync({});
-      console.log("Bob",location);
+
       setLocation(location);
     })();
   },[]);
 
     return (
-        <MapView 
+        <MapView
         style={styles.mapStyle}
         initialRegion={initialPosition}
-        loadingEnabled={true}
         showsUserLocation={true}
-        clustering = {true}
-        clusterColor = '#000'
-        clusterTextColor = '#fff'
-        clusterBorderColor = '#fff'
-        clusterBorderWidth = {4}
         >
           <DefPins/>
         </MapView>
