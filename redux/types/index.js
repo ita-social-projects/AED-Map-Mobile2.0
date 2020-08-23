@@ -1,0 +1,12 @@
+export const GET_DEFFS_DATA = "GET_DEFFS_DATA";
+export const SET_DEFFS_DATA = "SET_DEFFS_DATA";
+
+export const GET_DEFF = "GET_DEFF";
+export const SET_DEFF = "SET_DEFF";
+
+export const SET_USER_LOCATION = "SET_USER_LOCATION";
+export const SET_DESTINATION_LOCATION="SET_DESTINATION_LOCATION";
+export const SET_DRIVING_MODE = "SET_DRIVING_MODE";
+
+export const GET_DIRECTION = "GET_DIRECTION";
+export const SET_DIRECTION = "SET_DIRECTION";

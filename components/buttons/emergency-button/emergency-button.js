@@ -1,5 +1,8 @@
 import React, {useState, useEffect} from 'react';
+import {useDispatch,useSelector} from 'react-redux';
 import {StyleSheet, View, Text, TouchableOpacity, Animated} from 'react-native';
+import nearestDeff from '../../../utils/nearestDeff';
+import { getDeff } from '../../../redux/actions';
 
 const emergencySize = 125;
 
@@ -7,22 +10,16 @@ const EmergencyButton = () => {
   const [emergencyBleepWidth] = useState(new Animated.Value(emergencySize));
   const [emergencyOpacity] = useState(new Animated.Value(1));
 
-//   const emergencyPress = () => {
-//     const nearbyDefs = nearestDefsSelector({featureCollection, userLocation});
-//     setPopupData({
-//       type: 'default',
-//       id: nearbyDefs[0].id
-//     });
+  const dispatch = useDispatch();
+  const {userLocation,deffData} = useSelector((state) => ({
+    userLocation: state.userLocation,
+    deffData: state.deffData
+  }))
 
-//     setOrigin(userLocation);
-//     const {coordinates} = nearbyDefs[0];
-//     setDestination(coordinates);
-
-//     setMapParameters({
-//       coordinates,
-//       zoom: 15
-//     });
-//   };
+  const emergencyPress = () => {
+    const nearbyDefs = nearestDeff(deffData,userLocation);
+    dispatch(getDeff(nearbyDefs[0].id))
+  };
 
   useEffect(() => {
     Animated.loop(
@@ -78,7 +75,7 @@ const EmergencyButton = () => {
     <View style={styles.emergencyButtonHolder}>
       <Animated.View style={buttonStyle} />
 
-      <TouchableOpacity style={styles.emergencyButton}>
+      <TouchableOpacity style={styles.emergencyButton} onPress={emergencyPress}>
         <Text style={styles.emButtonText}>
           {'Натисніть \nдля швидкого\n пошуку'}
         </Text>
