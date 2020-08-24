@@ -49,7 +49,7 @@ const MoveTypes = () => {
 //     }
 //   };
   return (
-    <Animated.View style={[styles.driveTypes, directionValue.getLayout()]}>
+    <Animated.View style={[styles.driveTypes]}>
       <TouchableOpacity>
         <View style={styles.driveTypeButton}>
           <Image

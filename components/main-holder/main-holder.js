@@ -8,7 +8,7 @@ const MainHolder = () => {
     return (
         <>    
             <MapHolder/>
-            <NavBar/>   
+            <NavBar/>  
             <EmergencyButton/>  
         </>
     )

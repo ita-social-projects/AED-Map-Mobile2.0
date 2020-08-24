@@ -33,6 +33,7 @@ const MapHolder = () => {
     //   ],{animated: true,edgePadding: {top: 10,bottom: 10,left: 30,right: 30}})
     // }
   }
+}
 
   useEffect(() => {
     (async () => {
@@ -60,7 +61,7 @@ const MapHolder = () => {
           {/* <Direction/> */}
         </MapView>
     )
-}
+  }
 
 const styles = StyleSheet.create({
     mapStyle: {
