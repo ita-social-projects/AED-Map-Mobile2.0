@@ -9,41 +9,16 @@ import {
   Platform,
   Linking
 } from 'react-native';
-import {connect} from 'react-redux';
-import LoadingSpinner from '../../../shared/LoadingSpinner';
-import {fetchSingleItem} from '../../../store/api';
-import {
-  setPopupData,
-  setMapParameters,
-  setDestination
-} from '../../../store/actions';
-import {nearestDefsSelector} from '../../../store/reducer';
-import getFromMocks from '../../../store/api/getFromMocks';
+import {useDispatch,useSelector} from 'react-redux';
+import { setDeff, getDeff } from '../../redux/actions';
+import nearestDeff from '../../utils/nearestDeff'
 
-const DefInfoContent = ({
-  popupData,
-  setPopupData,
-  setMapParameters,
-  featureCollection,
-  userLocation,
-  setDestination
-}) => {
-  const [currentDef, setCurrentDef] = useState({});
-  useEffect(() => {
-    const getPopupData = async () => {
-      let defibrillator = {};
-      if (getFromMocks) {
-        defibrillator = require('../../../mocks/FullDefs.json').data.listDefs.find(
-          element => element._id === popupData.id
-        );
-      } else {
-        defibrillator = await fetchSingleItem({id: popupData.id}).defibrillator;
-      }
-
-      setCurrentDef(defibrillator);
-    };
-    getPopupData();
-  }, [popupData.id]);
+const DefInfoContent = () => {
+  const dispatch = useDispatch();
+  const {currentDeff,deffData,userLocation} = useSelector((state) => ({ 
+    currentDeff: state.currentDeff, 
+    deffData: state.deffData,
+    userLocation: state.userLocation}));
 
   const [counter, setCounter] = useState(1);
 
@@ -55,27 +30,23 @@ const DefInfoContent = ({
       phoneNum = `telprompt:${phoneNumber}`;
     }
     Linking.openURL(phoneNum);
-    setPopupData(null);
+    dispatch(setDeff(null));
   };
 
   const findNext = () => {
-    const nearbyDefs = nearestDefsSelector({featureCollection, userLocation});
+    const nearbyDefs = nearestDeff(deffData,userLocation);
     setCounter(count => count + 1);
     if (counter >= nearbyDefs.length - 1) {
       setCounter(0);
     }
     const near = nearbyDefs[counter];
-    setPopupData({id: near.id});
-    setMapParameters({
-      coordinates: near.coordinates,
-      zoom: 15
-    });
-    setDestination(near.coordinates);
+
+    dispatch(getDeff(near.id))
   };
 
   const phoneRenders =
-    currentDef.phone &&
-    currentDef.phone.map(singlePhone => {
+    currentDeff.phone &&
+    currentDeff.phone.map(singlePhone => {
       return (
         <TouchableOpacity key={singlePhone} style={styles.phone}>
           <Button
@@ -90,47 +61,33 @@ const DefInfoContent = ({
 
   return (
     <View style={styles.contentHolder}>
-      {currentDef ? (
+      {currentDeff ? (
         <ScrollView style={styles.currentInfo}>
-          <TouchableOpacity style={styles.nextBtn} onPress={findNext}>
+          {userLocation ? (<TouchableOpacity style={styles.nextBtn} onPress={findNext}>
             <Text>Знайти наступний дефібрилятор</Text>
-          </TouchableOpacity>
-
+          </TouchableOpacity>) : null}
           <View style={styles.title}>
-            <Text style={styles.popupText}>{currentDef.title}</Text>
+            <Text style={styles.popupText}>{currentDeff.title}</Text>
           </View>
-          <Text style={styles.popupText}>{currentDef.address}</Text>
-          {currentDef.additional_information ? (
+          <Text style={styles.popupText}>{currentDeff.address}</Text>
+          {currentDeff.additional_information ? (
             <Text style={styles.popupText}>
-              {currentDef.additional_information}
+              {currentDeff.additional_information}
             </Text>
           ) : null}
-          {currentDef.phone ? (
+          {currentDeff.phone ? (
             <>
               <Text style={styles.popupText}>Телефони:</Text>
               {phoneRenders}
             </>
           ) : null}
         </ScrollView>
-      ) : (
-        <LoadingSpinner />
-      )}
+      ) : null}
     </View>
   );
 };
 
-export default connect(
-  state => ({
-    popupData: state.popupData,
-    featureCollection: state.featureCollection,
-    userLocation: state.userLocation
-  }),
-  dispatch => ({
-    setPopupData: data => dispatch(setPopupData(data)),
-    setMapParameters: map => dispatch(setMapParameters(map)),
-    setDestination: destination => dispatch(setDestination(destination))
-  })
-)(DefInfoContent);
+export default DefInfoContent;
 
 const styles = StyleSheet.create({
   popupText: {

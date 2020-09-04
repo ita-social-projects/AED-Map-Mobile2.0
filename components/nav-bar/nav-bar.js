@@ -1,4 +1,5 @@
 import React, {useState, useEffect} from 'react';
+import {useDispatch,useSelector} from 'react-redux';
 import {
   StyleSheet,
   View,
@@ -6,51 +7,55 @@ import {
   Animated,
   Image
 } from 'react-native';
+import { setDrivingMode, setDeff, setDestLocation } from '../../redux/actions';
+
+// const additionalStyle = {
+//   driving: {
+//     lineColor: '#00f',
+//     lineDasharray: [3, 0]
+//   },
+//   cycling: {
+//     lineColor: '#00f',
+//     lineDasharray: [2, 2]
+//   },
+//   walking: {
+//     lineColor: '#00f',
+//     lineDasharray: [1, 3]
+//   }
+// };
 
 const MoveTypes = () => {
   const [directionValue] = useState(new Animated.ValueXY({x: -200, y: 0}));
+  const dispatch = useDispatch()
+  const destLocation = useSelector((state) => state.destLocation)
 
-//   useEffect(() => {
-//     if (directionType) {
-//       displayWayBasedOnType();
-//     }
-//   }, [directionType]);
+  useEffect(() => {
+    slideDirectionWindow();
+  }, [destLocation]);
 
-//   useEffect(() => {
-//     slideDirectionWindow();
-//   }, [destination]);
 
-//   const displayWayBasedOnType = async () => {
-//     if (destination) {
-//       setDirectionData({geoData: null});
-//       const geoData = await getDirectionData(
-//         origin,
-//         destination,
-//         directionType
-//       );
-//       setDirectionData({
-//         geoData,
-//         directionType,
-//         additionalStyle: additionalStyle[directionType]
-//       });
-//     }
-//   };
-//   const slideDirectionWindow = () => {
-//     if (destination) {
-//       Animated.spring(directionValue, {
-//         toValue: {x: 0, y: 0},
-//         speed: 15
-//       }).start();
-//     } else {
-//       Animated.spring(directionValue, {
-//         toValue: {x: -200, y: 0},
-//         speed: 15
-//       }).start();
-//     }
-//   };
+  const slideDirectionWindow = () => {
+    if (destLocation) {
+      Animated.spring(directionValue, {
+        toValue: {x: 0, y: 0},
+        speed: 15,
+        useNativeDriver: false
+      }).start();
+    } else {
+      Animated.spring(directionValue, {
+        toValue: {x: -200, y: 0},
+        speed: 15,
+        useNativeDriver: false
+      }).start();
+    }
+  };
   return (
-    <Animated.View style={[styles.driveTypes]}>
-      <TouchableOpacity>
+    <Animated.View style={[styles.driveTypes, directionValue.getLayout()]}>
+      <TouchableOpacity onPress={
+        () => {
+          dispatch(setDrivingMode('driving'))
+        }
+      }>
         <View style={styles.driveTypeButton}>
           <Image
             style={styles.driveImg}
@@ -59,7 +64,11 @@ const MoveTypes = () => {
         </View>
       </TouchableOpacity>
 
-      <TouchableOpacity>
+      <TouchableOpacity onPress={
+        () => {
+          dispatch(setDrivingMode('cycling'))
+        }
+      }>
         <View style={styles.driveTypeButton}>
           <Image
             style={styles.driveImg}
@@ -68,7 +77,11 @@ const MoveTypes = () => {
         </View>
       </TouchableOpacity>
 
-      <TouchableOpacity>
+      <TouchableOpacity onPress={
+        () => {
+          dispatch(setDrivingMode('walking'))
+        }
+      }>
         <View style={styles.driveTypeButton}>
           <Image
             style={styles.driveImg}
@@ -76,7 +89,13 @@ const MoveTypes = () => {
           />
         </View>
       </TouchableOpacity>
-      <TouchableOpacity>
+      <TouchableOpacity onPress={
+        () => {
+          dispatch(setDrivingMode(null));
+          dispatch(setDeff(null));
+          dispatch(setDestLocation(null));
+        }
+      }>
         <View style={styles.closeTypeButton}>
           <Image
             style={styles.driveImg}

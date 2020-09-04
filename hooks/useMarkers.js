@@ -1,24 +1,38 @@
-import React,{useState} from 'react';
+import React,{useState,useEffect} from 'react';
+import {useDispatch,useSelector} from 'react-redux';
 import {Marker} from 'react-native-maps';
 import DefPin from '../components/map-holder/components/def-pin'
 import DestPin from '../components/map-holder/components/dest-pin'
+import { getAllDeffs, getDeff } from '../redux/actions';
 
 
 
 const useMarkers = () => {
-    const initLocation =  [{longitude: 24.031691,latitude: 49.841771},
-        {longitude: 24.013691,latitude: 49.841771},
-        {longitude: 24.056691,latitude: 49.841771},
-        {longitude: 24.024691,latitude: 49.841771}];
+    const deffData = useSelector((state) => state.deffData)
+    const [locations,setLocations] = useState([]);
+    const dispatch = useDispatch();
 
-    const [locations,setLocations] = useState(initLocation);
+    useEffect(() => { 
+        dispatch(getAllDeffs());
+    },[])
 
-    const markers = locations.map((item,index) => (<Marker
-        coordinate={{longitude: item.longitude,latitude: item.latitude}}
-        key={index} identifier={`${index*2}`}
+    useEffect(() => {
+        setLocations(deffData);
+    },[deffData])
+
+    const handleMarkerClick = (event) => {
+        dispatch(getDeff(event.nativeEvent.id))
+    }
+
+    const markers = locations.map((item) => (
+    <Marker
+        coordinate={{longitude: item.location.coordinates[0],latitude: item.location.coordinates[1]}}
+        key={item._id} 
+        identifier={`${item._id}`}
+        onPress={handleMarkerClick}
         >
-                <DestPin title="Площа ринок"/>
-         </Marker>))
+                <DefPin title={item.title}/>
+    </Marker>))
 
     return markers
 }

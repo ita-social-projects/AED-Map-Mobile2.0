@@ -1,14 +1,21 @@
 import React, {useEffect, useState} from 'react';
+import {useSelector,useDispatch} from 'react-redux';
 import {StyleSheet, View, Animated, PanResponder} from 'react-native';
-import DefInfoContent from './PopupContents/DefInfoContent';
-// import {maxPopupYOffset, gotoPopupYOffset, maxYVelocity} from './consts';
+import DefInfoContent from '../def-info';
+import {popupConfig} from '../../config';
+import { setDeff } from '../../redux/actions';
+
+const {maxPopupYOffset, gotoPopupYOffset, maxYVelocity} = popupConfig;
 
 const Popup = () => {
   const [popupValue] = useState(new Animated.Value(0));
 
-//   useEffect(() => {
-//     slidePopupWindow(20);
-//   }, [popupData]);
+  const dispatch = useDispatch();
+  const currentDeff = useSelector((state) => state.currentDeff)
+
+  useEffect(() => {
+    slidePopupWindow(20);
+  }, [currentDeff]);
 
   const panResponder = PanResponder.create({
     onMoveShouldSetResponderCapture: () => true,
@@ -30,7 +37,7 @@ const Popup = () => {
       const generalOffset = popupValue._value + popupValue._offset;
 
       if (generalOffset > gotoPopupYOffset || vy > maxYVelocity) {
-        setPopupData(null);
+        dispatch(setDeff(null));
       } else if (generalOffset < gotoPopupYOffset) {
         slidePopupWindowToTop(20);
       }
@@ -38,24 +45,27 @@ const Popup = () => {
   });
 
   const slidePopupWindow = speed => {
-    if (popupData) {
+    if (currentDeff) {
       Animated.spring(popupValue, {
         toValue: gotoPopupYOffset,
-        speed
+        speed,
+        useNativeDriver: false
       }).start();
     } else {
       Animated.spring(popupValue, {
         toValue: 0,
-        speed
+        speed,
+        useNativeDriver: false
       }).start();
     }
   };
 
   const slidePopupWindowToTop = speed => {
-    if (popupData) {
+    if (currentDeff) {
       Animated.spring(popupValue, {
         toValue: maxPopupYOffset + 1,
-        speed
+        speed,
+        useNativeDriver: false
       }).start();
     }
   };
@@ -65,12 +75,10 @@ const Popup = () => {
       <Animated.View style={styles.popupHandle} {...panResponder.panHandlers}>
         <View style={styles.handleStick} />
       </Animated.View>
-      {/* {popupData && <DefInfoContent />} */}
+      {currentDeff && <DefInfoContent />}
     </Animated.View>
   );
 };
-
-export default Popup;
 
 const styles = StyleSheet.create({
   popupOuter: {
@@ -94,3 +102,5 @@ const styles = StyleSheet.create({
     alignSelf: 'center'
   }
 });
+
+export default Popup;
