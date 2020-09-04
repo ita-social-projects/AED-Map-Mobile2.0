@@ -8,7 +8,7 @@ import {
     SET_DRIVING_MODE, 
     GET_DIRECTION, 
     SET_DIRECTION,
-    SET_SEARCH
+    SET_SEARCH_LOCATION
 } from '../types/index'
 
 const getAllDeffs = () => {
@@ -32,9 +32,9 @@ const setDeffs = deffs => {
     }
 }
 
-const setSearch = search => {
+const setSearchLocation = search => {
     return {
-        type: SET_SEARCH,
+        type: SET_SEARCH_LOCATION,
         payload: search
     }
 }
@@ -91,5 +91,5 @@ export {
     getAllDeffs,
     getDeff,
     getDirection,
-    setSearch
+    setSearchLocation
 }

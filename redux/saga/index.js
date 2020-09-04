@@ -16,7 +16,7 @@ function* handleDeff ({payload}) {
 }
 
 function* handleGetDirection({payload}) {
-    const coordinates = yield call(findWay,payload.userLocation,payload.destLocation,payload.drivingMode)
+    const coordinates = yield call(findWay,payload.location,payload.destLocation,payload.drivingMode)
     const direction = yield call(getDirections,coordinates)
     yield put(setDirection(direction));
 }
