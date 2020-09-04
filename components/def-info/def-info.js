@@ -12,6 +12,7 @@ import {
 import {useDispatch,useSelector} from 'react-redux';
 import { setDeff, getDeff } from '../../redux/actions';
 import nearestDeff from '../../utils/nearestDeff'
+import NavBar from '../nav-bar';
 
 const DefInfoContent = () => {
   const dispatch = useDispatch();
@@ -63,10 +64,12 @@ const DefInfoContent = () => {
     <View style={styles.contentHolder}>
       {currentDeff ? (
         <ScrollView style={styles.currentInfo}>
-          {userLocation ? (<TouchableOpacity style={styles.nextBtn} onPress={findNext}>
+          {userLocation ? (
+          <TouchableOpacity style={styles.nextBtn} onPress={findNext}>
             <Text>Знайти наступний дефібрилятор</Text>
           </TouchableOpacity>) : null}
           <View style={styles.title}>
+            <NavBar/>
             <Text style={styles.popupText}>{currentDeff.title}</Text>
           </View>
           <Text style={styles.popupText}>{currentDeff.address}</Text>
@@ -93,7 +96,6 @@ const styles = StyleSheet.create({
   popupText: {
     fontSize: 20,
     color: '#fcfcfc',
-
     paddingBottom: 5,
     marginBottom: 5
   },

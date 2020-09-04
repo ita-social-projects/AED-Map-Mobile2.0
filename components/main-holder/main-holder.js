@@ -11,11 +11,9 @@ const MainHolder = () => {
     return (
         <>    
             <Search />
-            <MapHolder/>
-            <NavBar/>   
+            <MapHolder/>  
             <EmergencyButton/> 
             <Popup/> 
-            <SetDestination/>
         </>
     )
 }

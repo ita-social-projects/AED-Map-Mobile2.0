@@ -6,7 +6,7 @@ import findWay from '../../utils/findWay';
 import getDirections from '../../utils/getDirections';
 
 function* handleDeffs () {
-    const deffs = yield call(getAllDefs,null);
+    const deffs = yield call(getAllDefs);
     yield put(setDeffs(deffs));
 }
 

@@ -1,9 +1,17 @@
-const getAllDefs = () => {
-    return require('../../data/full-defs.json').data.listDefs;
+const axios = require('axios')
+
+const getAllDefs = async () => {
+    const res = await axios.get('https://aed.nevidkladka.org/api/defibrillators')
+        .then(res => res)
+        .catch(err => err)
+    return res.data.mapDefs;
 }
 
-const getDeff = (id) => {
-    return require('../../data/full-defs.json').data.listDefs.filter((item) => (item._id===id))[0]
+const getDeff = async (id) => {
+    const res = await axios.get(`https://aed.nevidkladka.org/api/defibrillators/${id}`)
+        .then(res => res)
+        .catch(err => err)
+    return res.data.defibrillator
 }
 
 export {
