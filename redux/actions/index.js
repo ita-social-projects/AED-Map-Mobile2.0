@@ -1,4 +1,15 @@
-import {SET_DEFFS_DATA, SET_DEFF, SET_USER_LOCATION, SET_DESTINATION_LOCATION, GET_DEFFS_DATA, GET_DEFF, SET_DRIVING_MODE, GET_DIRECTION, SET_DIRECTION} from '../types/index'
+import {
+    SET_DEFFS_DATA, 
+    SET_DEFF, 
+    SET_USER_LOCATION, 
+    SET_DESTINATION_LOCATION, 
+    GET_DEFFS_DATA,
+    GET_DEFF, 
+    SET_DRIVING_MODE, 
+    GET_DIRECTION, 
+    SET_DIRECTION,
+    SET_SEARCH_LOCATION
+} from '../types/index'
 
 const getAllDeffs = () => {
     return {
@@ -18,6 +29,13 @@ const setDeffs = deffs => {
     return {
         type: SET_DEFFS_DATA,
         payload: deffs
+    }
+}
+
+const setSearchLocation = search => {
+    return {
+        type: SET_SEARCH_LOCATION,
+        payload: search
     }
 }
 
@@ -72,5 +90,6 @@ export {
     setDirection,
     getAllDeffs,
     getDeff,
-    getDirection
+    getDirection,
+    setSearchLocation
 }

@@ -5,18 +5,20 @@ import { getDirection } from '../../../../redux/actions';
 
 const Direction = () => {
 	const dispatch = useDispatch();
-	const {destLocation,userLocation,drivingMode,direction} = useSelector((state) => ({
+	const {destLocation,userLocation,drivingMode,direction,searchLocation} = useSelector((state) => ({
 		destLocation: state.destLocation,
 		userLocation: state.userLocation,
 		drivingMode: state.drivingMode,
-		direction: state.direction
+		direction: state.direction,
+		searchLocation: state.searchLocation,
 	}))
 
 	useEffect(() => {
-		if(destLocation && userLocation && drivingMode) {
-			dispatch(getDirection({destLocation,userLocation,drivingMode}))
+		const location = (userLocation || searchLocation)
+		if(destLocation && location && drivingMode) {
+			dispatch(getDirection({destLocation, location, drivingMode}))
 		}
-	},[destLocation,userLocation,drivingMode])
+	},[destLocation,userLocation, searchLocation ,drivingMode])
 
     return (
 		direction ? <Polyline

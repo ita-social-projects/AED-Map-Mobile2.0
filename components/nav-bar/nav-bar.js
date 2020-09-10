@@ -29,31 +29,20 @@ const MoveTypes = () => {
   const dispatch = useDispatch()
   const destLocation = useSelector((state) => state.destLocation)
 
-  useEffect(() => {
-    slideDirectionWindow();
-  }, [destLocation]);
+  const currentDeff = useSelector(state => state.currentDeff)
 
-
-  const slideDirectionWindow = () => {
-    if (destLocation) {
-      Animated.spring(directionValue, {
-        toValue: {x: 0, y: 0},
-        speed: 15,
-        useNativeDriver: false
-      }).start();
-    } else {
-      Animated.spring(directionValue, {
-        toValue: {x: -200, y: 0},
-        speed: 15,
-        useNativeDriver: false
-      }).start();
-    }
+  const setAsDestination = () => {
+      if(currentDeff){
+        dispatch(setDestLocation(currentDeff.location.coordinates))
+      }
   };
+
   return (
-    <Animated.View style={[styles.driveTypes, directionValue.getLayout()]}>
+    <Animated.View style={[styles.driveTypes]}>
       <TouchableOpacity onPress={
         () => {
-          dispatch(setDrivingMode('driving'))
+          dispatch(setDrivingMode('driving')),
+          setAsDestination()
         }
       }>
         <View style={styles.driveTypeButton}>
@@ -66,7 +55,8 @@ const MoveTypes = () => {
 
       <TouchableOpacity onPress={
         () => {
-          dispatch(setDrivingMode('cycling'))
+          dispatch(setDrivingMode('cycling')),
+          setAsDestination()
         }
       }>
         <View style={styles.driveTypeButton}>
@@ -79,7 +69,8 @@ const MoveTypes = () => {
 
       <TouchableOpacity onPress={
         () => {
-          dispatch(setDrivingMode('walking'))
+          dispatch(setDrivingMode('walking')),
+          setAsDestination()
         }
       }>
         <View style={styles.driveTypeButton}>
@@ -113,11 +104,9 @@ const styles = StyleSheet.create({
   driveTypes: {
     padding: 10,
     backgroundColor: '#282c34',
-    position: 'absolute',
-    left: -200,
     flexDirection: 'row',
     justifyContent: 'space-between',
-    width: 200
+    width: '100%'
   },
   driveTypeButton: {
     width: 40,

@@ -1,11 +1,20 @@
 import {initialPosition} from '../../config'
-import { SET_DESTINATION_LOCATION, SET_USER_LOCATION, SET_DEFFS_DATA, SET_DEFF, SET_DRIVING_MODE, SET_DIRECTION } from '../types'
+import { 
+    SET_DESTINATION_LOCATION, 
+    SET_USER_LOCATION,
+    SET_DEFFS_DATA, 
+    SET_DEFF, 
+    SET_DRIVING_MODE, 
+    SET_DIRECTION,
+    SET_SEARCH_LOCATION 
+} from '../types'
 
 const initialState = {
     deffData: [],
     currentDeff: null,
     mapPosition: initialPosition,
     userLocation: null,
+    searchLocation: '',
     destLocation: null,
     drivingMode: null,
     direction: null,
@@ -21,6 +30,8 @@ const reducer = (state = initialState, action = {}) => {
             return {...state,currentDeff: action.payload}
         case SET_DESTINATION_LOCATION:
             return {...state,destLocation: action.payload} 
+        case SET_SEARCH_LOCATION:
+            return {...state,searchLocation: action.payload}
         case SET_USER_LOCATION:
             return {...state,userLocation: action.payload}
         case SET_DRIVING_MODE:

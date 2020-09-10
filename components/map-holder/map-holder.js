@@ -9,7 +9,6 @@ import Direction from './components/direction';
 import { setUserLocation } from '../../redux/actions';
 
 const MapHolder = () => {
-
   const markers = useMarkers();
   const dispatch = useDispatch();
   const {currentDeff,destination} = useSelector(state => ({
@@ -57,7 +56,7 @@ const MapHolder = () => {
           <Direction/>
         </MapView>
     )
-}
+  }
 
 const styles = StyleSheet.create({
     mapStyle: {
