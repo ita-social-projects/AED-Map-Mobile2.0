@@ -26,7 +26,7 @@ const MapHolder = () => {
           longitude: currentDeff.location.coordinates[0],
           latitude: currentDeff.location.coordinates[1]
         },
-        zoom: 5,
+        zoom: 50,
         altitude: 10000
       }
       mapRef.current.animateCamera(camera,{duration: 1000});
