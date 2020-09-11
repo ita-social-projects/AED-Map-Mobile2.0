@@ -8,7 +8,7 @@ const findWay = async(from,to,moveType) => {
     if (data.message) {
         throw new Error(data.message)
     }
-                    
+
     return data.routes[0].geometry.coordinates;
     }
     catch(err) {
