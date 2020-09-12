@@ -7,7 +7,7 @@ import * as Location from 'expo-location';
 import useMarkers from '../../hooks/useMarkers'
 import Direction from './components/direction';
 import { setUserLocation } from '../../redux/actions';
-import findCamera from '../../utils/findCamera';
+import findDestinationRegion from '../../utils/findDestinationRegion';
 
 const MapHolder = () => {
   const markers = useMarkers();
@@ -26,19 +26,19 @@ const MapHolder = () => {
           longitude: currentDeff.location.coordinates[0],
           latitude: currentDeff.location.coordinates[1]
         },
-        zoom: 50,
+        zoom: 15,
         altitude: 10000
-      }
+      };
       mapRef.current.animateCamera(camera,{duration: 1000});
     }
-  },[dispatch,currentDeff])
+  },[dispatch,currentDeff]);
 
   useEffect(() => {
     if (mapRef.current && direction) {
-        const camera = findCamera(direction);
-        mapRef.current.animateCamera(camera,{duration: 1000});
+        const region = findDestinationRegion(direction);
+        mapRef.current.animateToRegion(region,1000);
     }
-  },[dispatch,direction])
+  },[dispatch,direction]);
 
   useEffect(() => {
     (async () => {
