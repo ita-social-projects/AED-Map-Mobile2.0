@@ -41,11 +41,9 @@ const Search = () => {
             onChangeText={text => handleSearchChange(text)}
             placeholder="Type Here..."
             value={search}
-            style={styles.searchBar}
             platform={Platform.OS}
             cancelButtonTitle='Cancel'
-            containerStyle={{backgroundColor: '#161F00'}}
-            inputContainerStyle={{backgroundColor: '#161F00'}}
+            containerStyle={{backgroundColor: '#282c34'}}
           />
         </View>
     )
@@ -57,7 +55,7 @@ const styles = StyleSheet.create({
   searchBar: {
     width: '100%',
     justifyContent: 'center',
-    backgroundColor: '#161F00',
-    paddingTop: Platform.OS == 'ios' ? 40 : 20,
+    backgroundColor: '#282c34',
+    paddingTop: Platform.OS == 'ios' ? 13 : 0,
   },
 });
