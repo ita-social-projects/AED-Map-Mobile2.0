@@ -7,28 +7,38 @@ import * as Location from 'expo-location';
 import useMarkers from '../../hooks/useMarkers'
 import Direction from './components/direction';
 import { setUserLocation } from '../../redux/actions';
+import findCamera from '../../utils/findCamera';
 
 const MapHolder = () => {
   const markers = useMarkers();
   const dispatch = useDispatch();
-  const {currentDeff,destination} = useSelector(state => ({
+  const {currentDeff,direction} = useSelector(state => ({
     currentDeff: state.currentDeff,
-    destination: state.destination
+    direction: state.direction
   }))
   
   let mapRef= useRef(null);
 
   useEffect(() => {
     if (mapRef.current && currentDeff) {
-        mapRef.current.fitToSuppliedMarkers([currentDeff._id],{animated: true})
+      const camera = {
+        center: {
+          longitude: currentDeff.location.coordinates[0],
+          latitude: currentDeff.location.coordinates[1]
+        },
+        zoom: 50,
+        altitude: 10000
+      }
+      mapRef.current.animateCamera(camera,{duration: 1000});
     }
-  },[currentDeff])
+  },[dispatch,currentDeff])
 
   useEffect(() => {
-    if (mapRef.current && destination) {
-        mapRef.current.fitToCoordinates(destination,{animated: true})
+    if (mapRef.current && direction) {
+        const camera = findCamera(direction);
+        mapRef.current.animateCamera(camera,{duration: 1000});
     }
-  },[destination])
+  },[dispatch,direction])
 
   useEffect(() => {
     (async () => {

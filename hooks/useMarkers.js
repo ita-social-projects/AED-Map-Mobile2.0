@@ -14,11 +14,11 @@ const useMarkers = () => {
 
     useEffect(() => { 
         dispatch(getAllDeffs());
-    },[])
+    },[dispatch])
 
     useEffect(() => {
         setLocations(deffData);
-    },[deffData])
+    },[dispatch,deffData])
 
     const handleMarkerClick = (event) => {
         dispatch(setSelectedDeff(event.nativeEvent.id))

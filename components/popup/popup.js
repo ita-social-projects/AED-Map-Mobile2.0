@@ -30,7 +30,7 @@ const Popup = () => {
       if (generalOffset < maxPopupYOffset || generalOffset > 0) {
         allowMoving = false;
       }
-      Animated.event([null, {dy: allowMoving && popupValue}])(e, gestureState);
+      Animated.event([null, {dy: allowMoving && popupValue,useNativeDriver: false}])(e, gestureState);
     },
     onPanResponderRelease: (e, {vy}) => {
       popupValue.flattenOffset();

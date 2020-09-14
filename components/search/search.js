@@ -58,6 +58,6 @@ const styles = StyleSheet.create({
     width: '100%',
     justifyContent: 'center',
     backgroundColor: '#161F00',
-    paddingTop: Platform.OS == 'ios' ? 20 : 0,
+    paddingTop: Platform.OS == 'ios' ? 40 : 20,
   },
 });

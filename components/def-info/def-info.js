@@ -13,6 +13,7 @@ import {useDispatch,useSelector} from 'react-redux';
 import { setDeff, getDeff, setSelectedDeff } from '../../redux/actions';
 import nearestDeff from '../../utils/nearestDeff'
 import NavBar from '../nav-bar';
+import { popupConfig } from '../../config';
 
 const DefInfoContent = () => {
   const dispatch = useDispatch();
@@ -112,11 +113,12 @@ const styles = StyleSheet.create({
   contentHolder: {
     flex: 1,
     alignItems: 'center',
-    paddingBottom: 15
+    paddingBottom: 20
   },
   currentInfo: {
     width: '100%',
-    maxHeight: 400,
-    paddingHorizontal: 15
+    maxHeight: Math.abs(popupConfig.maxPopupYOffset) * 0.6,
+    paddingHorizontal: 20,
+    paddingVertical: 10
   }
 });
