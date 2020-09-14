@@ -45,6 +45,7 @@ const Search = () => {
             platform={Platform.OS}
             cancelButtonTitle='Cancel'
             containerStyle={{backgroundColor: '#161F00'}}
+            inputContainerStyle={{backgroundColor: '#161F00'}}
           />
         </View>
     )

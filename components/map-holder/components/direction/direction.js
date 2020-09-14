@@ -22,7 +22,9 @@ const Direction = () => {
 
     return (
 		direction ? <Polyline
-		coordinates={direction}
+      strokeColor="#008CCF" 
+      strokeWidth={3}
+      coordinates={direction}
 		/> : null
     )
 }

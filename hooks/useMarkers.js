@@ -3,7 +3,7 @@ import {useDispatch,useSelector} from 'react-redux';
 import {Marker} from 'react-native-maps';
 import DefPin from '../components/map-holder/components/def-pin'
 import DestPin from '../components/map-holder/components/dest-pin'
-import { getAllDeffs, getDeff } from '../redux/actions';
+import { getAllDeffs, getDeff, setSelectedDeff } from '../redux/actions';
 
 
 
@@ -21,6 +21,7 @@ const useMarkers = () => {
     },[deffData])
 
     const handleMarkerClick = (event) => {
+        dispatch(setSelectedDeff(event.nativeEvent.id))
         dispatch(getDeff(event.nativeEvent.id))
     }
 
@@ -31,7 +32,7 @@ const useMarkers = () => {
         identifier={`${item._id}`}
         onPress={handleMarkerClick}
         >
-                <DefPin title={item.title}/>
+                <DefPin id={item._id} title={item.title}/>
     </Marker>))
 
     return markers

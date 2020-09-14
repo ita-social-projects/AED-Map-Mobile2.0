@@ -6,11 +6,13 @@ import {
     SET_DEFF, 
     SET_DRIVING_MODE, 
     SET_DIRECTION,
-    SET_SEARCH_LOCATION 
+    SET_SEARCH_LOCATION,
+    SET_SELECTED_DEFF
 } from '../types'
 
 const initialState = {
     deffData: [],
+    selectedDeff: null,
     currentDeff: null,
     mapPosition: initialPosition,
     userLocation: null,
@@ -30,6 +32,8 @@ const reducer = (state = initialState, action = {}) => {
             return {...state,currentDeff: action.payload}
         case SET_DESTINATION_LOCATION:
             return {...state,destLocation: action.payload} 
+        case SET_SELECTED_DEFF:
+            return {...state,selectedDeff: action.payload} 
         case SET_SEARCH_LOCATION:
             return {...state,searchLocation: action.payload}
         case SET_USER_LOCATION:

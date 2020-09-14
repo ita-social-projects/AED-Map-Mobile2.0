@@ -8,7 +8,8 @@ import {
     SET_DRIVING_MODE, 
     GET_DIRECTION, 
     SET_DIRECTION,
-    SET_SEARCH_LOCATION
+    SET_SEARCH_LOCATION,
+    SET_SELECTED_DEFF
 } from '../types/index'
 
 const getAllDeffs = () => {
@@ -36,6 +37,13 @@ const setSearchLocation = search => {
     return {
         type: SET_SEARCH_LOCATION,
         payload: search
+    }
+}
+
+const setSelectedDeff = deff => {
+    return {
+        type: SET_SELECTED_DEFF,
+        payload: deff
     }
 }
 
@@ -84,6 +92,7 @@ const setDirection = direction => {
 export {
     setDeff,
     setDeffs,
+    setSelectedDeff,
     setUserLocation,
     setDestLocation,
     setDrivingMode,
