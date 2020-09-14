@@ -1,12 +1,10 @@
-import React,{useState,useEffect,useRef} from 'react';
+import React,{useEffect,useRef} from 'react';
 import {useDispatch,useSelector} from 'react-redux';
 import MapView from 'react-native-map-clustering';
 import { StyleSheet,Dimensions } from 'react-native';
 import {initialPosition} from '../../config';
-import * as Location from 'expo-location';
 import useMarkers from '../../hooks/useMarkers'
 import Direction from './components/direction';
-import { setUserLocation } from '../../redux/actions';
 import findDestinationRegion from '../../utils/findDestinationRegion';
 
 const MapHolder = () => {
@@ -40,20 +38,6 @@ const MapHolder = () => {
     }
   },[dispatch,direction]);
 
-  useEffect(() => {
-    (async () => {
-      let { status } = await Location.requestPermissionsAsync();
-      if (status !== 'granted') {
-        setErrorMsg('Permission to access location was denied');
-      }
-
-      let {coords} = await Location.getCurrentPositionAsync({});
-      let {latitude,longitude} = coords;
-
-      dispatch(setUserLocation([longitude,latitude]));
-    })();
-  },[]);
-
     return (
         <MapView
         ref={mapRef}
@@ -66,7 +50,7 @@ const MapHolder = () => {
           <Direction/>
         </MapView>
     )
-  }
+  };
 
 const styles = StyleSheet.create({
     mapStyle: {
