@@ -11,7 +11,7 @@ function* handleDeffs () {
 }
 
 function* handleDeff ({payload}) {
-    const deff = yield call(getDeff,payload)
+    const deff = yield call(getDeff,payload);
     yield put(setDeff(deff))
 }
 
