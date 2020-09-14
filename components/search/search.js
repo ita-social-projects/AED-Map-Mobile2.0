@@ -9,7 +9,7 @@ import {
 } from 'react-native';
 import { SearchBar } from 'react-native-elements';
 import nearestDeff from '../../utils/nearestDeff';
-import { getDeff } from '../../redux/actions';
+import { getDeff, setSelectedDeff } from '../../redux/actions';
 
 const Search = () => {
   const dispatch = useDispatch()
@@ -26,6 +26,7 @@ const Search = () => {
     const searchLocationArray = [searchLocation[0].longitude, searchLocation[0].latitude]
     const nearbyDefs = nearestDeff(deffData,searchLocationArray);
     if(nearbyDefs.length) {
+      dispatch(setSelectedDeff(nearbyDefs[0].id))
       dispatch(getDeff(nearbyDefs[0].id))
     }
     dispatch(
