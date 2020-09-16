@@ -2,7 +2,7 @@ import React, {useState, useEffect} from 'react';
 import {useDispatch,useSelector} from 'react-redux';
 import {StyleSheet, View, Text, TouchableOpacity, Animated} from 'react-native';
 import nearestDeff from '../../../utils/nearestDeff';
-import { getDeff } from '../../../redux/actions';
+import { getDeff, setSelectedDeff } from '../../../redux/actions';
 
 const emergencySize = 125;
 
@@ -18,6 +18,7 @@ const EmergencyButton = () => {
 
   const emergencyPress = () => {
     const nearbyDefs = nearestDeff(deffData,userLocation);
+    dispatch(setSelectedDeff(nearbyDefs[0].id))
     dispatch(getDeff(nearbyDefs[0].id))
   };
 

@@ -11,10 +11,10 @@ const Popup = () => {
   const [popupValue] = useState(new Animated.Value(0));
 
   const dispatch = useDispatch();
-  const currentDeff = useSelector((state) => state.currentDeff)
+  const currentDeff = useSelector((state) => state.currentDeff);
 
   useEffect(() => {
-    slidePopupWindow(20);
+    slidePopupWindow(0.5);
   }, [currentDeff]);
 
   const panResponder = PanResponder.create({
@@ -30,7 +30,7 @@ const Popup = () => {
       if (generalOffset < maxPopupYOffset || generalOffset > 0) {
         allowMoving = false;
       }
-      Animated.event([null, {dy: allowMoving && popupValue,useNativeDriver: false}])(e, gestureState);
+      Animated.event([null, {dy: allowMoving && popupValue}],{useNativeDriver: false})(e, gestureState);
     },
     onPanResponderRelease: (e, {vy}) => {
       popupValue.flattenOffset();
@@ -39,7 +39,7 @@ const Popup = () => {
       if (generalOffset > gotoPopupYOffset || vy > maxYVelocity) {
         dispatch(setDeff(null));
       } else if (generalOffset < gotoPopupYOffset) {
-        slidePopupWindowToTop(20);
+        slidePopupWindowToTop(0.5);
       }
     }
   });

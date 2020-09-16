@@ -1,4 +1,4 @@
-import React, {useState, useEffect} from 'react';
+import React, {useState} from 'react';
 import {
   StyleSheet,
   Text,
@@ -10,19 +10,28 @@ import {
   Linking
 } from 'react-native';
 import {useDispatch,useSelector} from 'react-redux';
-import { setDeff, getDeff } from '../../redux/actions';
-import nearestDeff from '../../utils/nearestDeff'
+import { setDeff } from '../../redux/actions';
 import NavBar from '../nav-bar';
 import { popupConfig } from '../../config';
+import useNextDeff from "../../hooks/useNextDeff";
+import LoadingBar from "../loading-bar";
 
 const DefInfoContent = () => {
-  const dispatch = useDispatch();
-  const {currentDeff,deffData,userLocation} = useSelector((state) => ({ 
-    currentDeff: state.currentDeff, 
-    deffData: state.deffData,
-    userLocation: state.userLocation}));
+  const findNext = useNextDeff();
 
-  const [counter, setCounter] = useState(1);
+  const dispatch = useDispatch();
+  const {currentDeff,userLocation,loading} = useSelector((state) => ({
+    currentDeff: state.currentDeff,
+    userLocation: state.userLocation,
+    loading: state.deffLoading}));
+
+  if (loading) {
+    return (
+          <View style={styles.loadingBar}>
+            <LoadingBar color={'white'}/>
+          </View>
+    )
+  }
 
   const makePhoneCall = phoneNumber => {
     let phoneNum = '';
@@ -33,17 +42,6 @@ const DefInfoContent = () => {
     }
     Linking.openURL(phoneNum);
     dispatch(setDeff(null));
-  };
-
-  const findNext = () => {
-    const nearbyDefs = nearestDeff(deffData,userLocation);
-    setCounter(count => count + 1);
-    if (counter >= nearbyDefs.length - 1) {
-      setCounter(0);
-    }
-    const near = nearbyDefs[counter];
-
-    dispatch(getDeff(near.id))
   };
 
   const phoneRenders =
@@ -63,30 +61,28 @@ const DefInfoContent = () => {
 
   return (
     <View style={styles.contentHolder}>
-      {currentDeff ? (
-        <ScrollView style={styles.currentInfo}>
-          {userLocation ? (
-          <TouchableOpacity style={styles.nextBtn} onPress={findNext}>
-            <Text>Знайти наступний дефібрилятор</Text>
-          </TouchableOpacity>) : null}
-          <View style={styles.title}>
-            <NavBar/>
-            <Text style={styles.popupText}>{currentDeff.title}</Text>
-          </View>
-          <Text style={styles.popupText}>{currentDeff.address}</Text>
-          {currentDeff.additional_information ? (
+      <ScrollView style={styles.currentInfo}>
+        {userLocation ? (
+            <TouchableOpacity style={styles.nextBtn} onPress={findNext}>
+              <Text>Знайти наступний дефібрилятор</Text>
+            </TouchableOpacity>) : null}
+        <View style={styles.title}>
+          <NavBar/>
+          <Text style={styles.popupText}>{currentDeff.title}</Text>
+        </View>
+        <Text style={styles.popupText}>{currentDeff.address}</Text>
+        {currentDeff.additional_information ? (
             <Text style={styles.popupText}>
               {currentDeff.additional_information}
             </Text>
-          ) : null}
-          {currentDeff.phone ? (
+        ) : null}
+        {currentDeff.phone ? (
             <>
               <Text style={styles.popupText}>Телефони:</Text>
               {phoneRenders}
             </>
-          ) : null}
-        </ScrollView>
-      ) : null}
+        ) : null}
+      </ScrollView>
     </View>
   );
 };
@@ -119,5 +115,9 @@ const styles = StyleSheet.create({
     maxHeight: Math.abs(popupConfig.maxPopupYOffset) * 0.6,
     paddingHorizontal: 20,
     paddingVertical: 10
+  },
+  loadingBar: {
+    justifyContent: 'center',
+    paddingVertical: 50
   }
 });

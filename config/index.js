@@ -7,6 +7,6 @@ export const initialPosition = {
 
 export const popupConfig = {
     maxPopupYOffset: -500,
-    gotoPopupYOffset: -300, 
+    gotoPopupYOffset: -300,
     maxYVelocity: 1.5
-}
+};
