@@ -1,14 +1,14 @@
 import {
-    SET_DEFFS_DATA, 
-    SET_DEFF, 
-    SET_USER_LOCATION, 
-    SET_DESTINATION_LOCATION, 
+    SET_DEFFS_DATA,
+    SET_DEFF,
+    SET_USER_LOCATION,
+    SET_DESTINATION_LOCATION,
     GET_DEFFS_DATA,
-    GET_DEFF, 
-    SET_DRIVING_MODE, 
-    GET_DIRECTION, 
+    GET_DEFF,
+    SET_DRIVING_MODE,
+    GET_DIRECTION,
     SET_DIRECTION,
-    SET_SEARCH_LOCATION
+    SET_SEARCH_LOCATION, SET_LOADING
 } from '../types/index'
 
 const getAllDeffs = () => {
@@ -79,7 +79,14 @@ const setDirection = direction => {
         type: SET_DIRECTION,
         payload: direction
     }
-}
+};
+
+const setLoader = state => {
+    return {
+        type: SET_LOADING,
+        payload: state
+    }
+};
 
 export {
     setDeff,
@@ -91,5 +98,6 @@ export {
     getAllDeffs,
     getDeff,
     getDirection,
-    setSearchLocation
+    setSearchLocation,
+    setLoader
 }

@@ -1,18 +1,14 @@
 import React from 'react'
 import MapHolder from '../map-holder'
-import EmergencyButton from '../buttons/emergency-button'
-import Search from '../search'
-import Popup from '../popup'
+import ControlPanel from "../control-panel";
 
 const MainHolder = () => {
     return (
-        <>    
-            <Search />
-            <MapHolder/>  
-            <EmergencyButton/> 
-            <Popup/> 
+        <>
+            <MapHolder/>
+            <ControlPanel/>
         </>
     )
-}
+};
 
 export default MainHolder;
