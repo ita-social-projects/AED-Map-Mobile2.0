@@ -15,10 +15,9 @@ const getAllDefs = async () => {
         : []);
     }
 
-    const res = await axios.get('https://aed.nevidkladka.org/api/defibrillator')
+    const res = await axios.get('https://aed.nevidkladka.org/api/defibrillators')
         .then(res => res)
         .catch(err => err);
-
 
     if (!res.data.mapDefs) {
         ErrorAlertGenerator("Мережа","Сталась помилка при з'єднанні з сервером")

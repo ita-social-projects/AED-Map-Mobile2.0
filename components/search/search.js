@@ -9,7 +9,7 @@ import {
 } from 'react-native';
 import { SearchBar } from 'react-native-elements';
 import nearestDeff from '../../utils/nearestDeff';
-import { getDeff } from '../../redux/actions';
+import { getDeff, setSelectedDeff } from '../../redux/actions';
 
 const Search = () => {
   const dispatch = useDispatch()
@@ -26,6 +26,7 @@ const Search = () => {
     const searchLocationArray = [searchLocation[0].longitude, searchLocation[0].latitude]
     const nearbyDefs = nearestDeff(deffData,searchLocationArray);
     if(nearbyDefs.length) {
+      dispatch(setSelectedDeff(nearbyDefs[0].id))
       dispatch(getDeff(nearbyDefs[0].id))
     }
     dispatch(
@@ -41,10 +42,9 @@ const Search = () => {
             onChangeText={text => handleSearchChange(text)}
             placeholder="Type Here..."
             value={search}
-            style={styles.searchBar}
             platform={Platform.OS}
             cancelButtonTitle='Cancel'
-            containerStyle={{backgroundColor: '#161F00'}}
+            containerStyle={{backgroundColor: '#282c34'}}
           />
         </View>
     )
@@ -56,7 +56,7 @@ const styles = StyleSheet.create({
   searchBar: {
     width: '100%',
     justifyContent: 'center',
-    backgroundColor: '#161F00',
-    paddingTop: Platform.OS == 'ios' ? 40 : 20,
+    backgroundColor: '#282c34',
+    paddingTop: Platform.OS == 'ios' ? 13 : 0,
   },
 });
