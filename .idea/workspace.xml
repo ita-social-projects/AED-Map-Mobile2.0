@@ -2,8 +2,6 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="bd4a8ed0-b444-45a0-97a8-4b929d05c70c" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/components/map-holder/map-holder.js" beforeDir="false" afterPath="$PROJECT_DIR$/components/map-holder/map-holder.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/redux/operations/index.js" beforeDir="false" afterPath="$PROJECT_DIR$/redux/operations/index.js" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -62,7 +60,7 @@
       <workItem from="1600161954466" duration="57000" />
       <workItem from="1600164732945" duration="597000" />
       <workItem from="1600244757650" duration="346000" />
-      <workItem from="1600257055439" duration="784000" />
+      <workItem from="1600257055439" duration="5064000" />
     </task>
     <servers />
   </component>

@@ -22,6 +22,7 @@ const getAllDefs = async () => {
 
     if (!res.data.mapDefs) {
         ErrorAlertGenerator("Мережа","Сталась помилка при з'єднанні з сервером")
+        return [];
     }
 
     const defs = res.data.mapDefs;
