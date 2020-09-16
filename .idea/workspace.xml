@@ -2,16 +2,9 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="bd4a8ed0-b444-45a0-97a8-4b929d05c70c" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/hooks/useLocation.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/hooks/useNetwork.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/hooks/useServices.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/utils/alerts.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/components/main-holder/main-holder.js" beforeDir="false" afterPath="$PROJECT_DIR$/components/main-holder/main-holder.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/components/map-holder/map-holder.js" beforeDir="false" afterPath="$PROJECT_DIR$/components/map-holder/map-holder.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/package-lock.json" beforeDir="false" afterPath="$PROJECT_DIR$/package-lock.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/package.json" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/redux/operations/index.js" beforeDir="false" afterPath="$PROJECT_DIR$/redux/operations/index.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/redux/saga/index.js" beforeDir="false" afterPath="$PROJECT_DIR$/redux/saga/index.js" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -66,6 +59,10 @@
       <workItem from="1599932684624" duration="18489000" />
       <workItem from="1599985974121" duration="2170000" />
       <workItem from="1600033662756" duration="85000" />
+      <workItem from="1600161954466" duration="57000" />
+      <workItem from="1600164732945" duration="597000" />
+      <workItem from="1600244757650" duration="346000" />
+      <workItem from="1600257055439" duration="784000" />
     </task>
     <servers />
   </component>

@@ -13,7 +13,7 @@ const MapHolder = () => {
   const {currentDeff,direction} = useSelector(state => ({
     currentDeff: state.currentDeff,
     direction: state.direction
-  }))
+  }));
   
   let mapRef= useRef(null);
 
