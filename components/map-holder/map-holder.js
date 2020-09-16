@@ -15,8 +15,8 @@ const MapHolder = () => {
     currentDeff: state.currentDeff,
     direction: state.direction,
     userLocation: state.userLocation,
-  }))
-  
+  }));
+
   let mapRef= useRef(null);
 
   useEffect(() => {
