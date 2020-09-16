@@ -10,7 +10,7 @@ import {
   Linking
 } from 'react-native';
 import {useDispatch,useSelector} from 'react-redux';
-import { setDeff, getDeff } from '../../redux/actions';
+import { setDeff, getDeff, setSelectedDeff } from '../../redux/actions';
 import nearestDeff from '../../utils/nearestDeff'
 import NavBar from '../nav-bar';
 import { popupConfig } from '../../config';
@@ -43,6 +43,7 @@ const DefInfoContent = () => {
     }
     const near = nearbyDefs[counter];
 
+    dispatch(setSelectedDeff(near.id))
     dispatch(getDeff(near.id))
   };
 

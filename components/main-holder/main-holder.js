@@ -5,6 +5,7 @@ import Search from '../search'
 import Popup from '../popup'
 import useServices from "../../hooks/useServices";
 import {useSelector} from "react-redux";
+import { StatusBar } from 'expo-status-bar';
 
 const MainHolder = () => {
 
@@ -16,7 +17,8 @@ const MainHolder = () => {
     useServices();
 
     return (
-        <>    
+        <>     
+            <StatusBar style="light" />
             <Search />
             <MapHolder/>  
             {userLocation && <EmergencyButton/>}
