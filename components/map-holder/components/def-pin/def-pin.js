@@ -1,7 +1,7 @@
 import React from 'react';
 import {View,Image,Text,StyleSheet} from 'react-native';
 import defIcon from '../../../../assets/def-icon/pin-icon.jpg'
-import destIcon from '../../../../assets/dest-icon/dest-icon.png'
+import defSelectedIcon from '../../../../assets/def-icon/pin-selected-icon.jpg'
 import {useSelector} from 'react-redux';
 
 const DefPin = ({id, title}) => {
@@ -9,7 +9,7 @@ const DefPin = ({id, title}) => {
       selectedDeff: state.selectedDeff,
     }))
 
-    const getSource = (selected) =>  selected===id?destIcon:defIcon
+    const getSource = (selected) =>  selected===id?defSelectedIcon:defIcon
 
     return  <View style={styles.pinBody}>
                 <Image source={getSource(selectedDeff)} style={styles.pinImage}/>
