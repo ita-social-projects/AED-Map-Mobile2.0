@@ -3,7 +3,7 @@ import * as Location from "expo-location";
 import {ErrorAlertGenerator} from "../utils/alerts";
 import {setUserLocation} from "../redux/actions";
 import {useDispatch} from 'react-redux';
-
+import {locationErrorTitle,locationErrorText} from '../config'
 
 
 const useLocation = () => {
@@ -14,7 +14,7 @@ const useLocation = () => {
             let { status } = await Location.requestPermissionsAsync();
 
             if (status !== 'granted') {
-                ErrorAlertGenerator("Локація","Не вдалось отримати місцеположення!");
+                ErrorAlertGenerator(locationErrorTitle, locationErrorText);
                 return;
             }
 
