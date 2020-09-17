@@ -32,7 +32,7 @@ const Search = () => {
     dispatch(
       setSearchLocation(searchLocationArray)
     )
-  }
+  };
 
     return (
         <View style={styles.searchBar}>
@@ -48,15 +48,15 @@ const Search = () => {
           />
         </View>
     )
-}
-
-export default Search
+};
 
 const styles = StyleSheet.create({
   searchBar: {
     width: '100%',
     justifyContent: 'center',
     backgroundColor: '#282c34',
-    paddingTop: Platform.OS == 'ios' ? 13 : 0,
+    paddingTop: Platform.OS === 'ios' ? 20 : 20,
   },
 });
+
+export default Search

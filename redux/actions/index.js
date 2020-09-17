@@ -1,14 +1,16 @@
 import {
-    SET_DEFFS_DATA, 
-    SET_DEFF, 
-    SET_USER_LOCATION, 
-    SET_DESTINATION_LOCATION, 
+    SET_DEFFS_DATA,
+    SET_DEFF,
+    SET_USER_LOCATION,
+    SET_DESTINATION_LOCATION,
     GET_DEFFS_DATA,
-    GET_DEFF, 
-    SET_DRIVING_MODE, 
-    GET_DIRECTION, 
+    GET_DEFF,
+    SET_DRIVING_MODE,
+    GET_DIRECTION,
     SET_DIRECTION,
     SET_SEARCH_LOCATION,
+    SET_LOADING,
+    SET_DEFF_LOADING,
     SET_SELECTED_DEFF
 } from '../types/index'
 
@@ -17,7 +19,7 @@ const getAllDeffs = () => {
         type: GET_DEFFS_DATA,
         payload: null
     }
-}
+};
 
 const getDeff = id => {
     return {
@@ -87,7 +89,21 @@ const setDirection = direction => {
         type: SET_DIRECTION,
         payload: direction
     }
-}
+};
+
+const setLoader = state => {
+    return {
+        type: SET_LOADING,
+        payload: state
+    }
+};
+
+const setDeffLoader = state => {
+    return {
+        type: SET_DEFF_LOADING,
+        payload: state
+    }
+};
 
 export {
     setDeff,
@@ -100,5 +116,7 @@ export {
     getAllDeffs,
     getDeff,
     getDirection,
-    setSearchLocation
+    setSearchLocation,
+    setLoader,
+    setDeffLoader
 }

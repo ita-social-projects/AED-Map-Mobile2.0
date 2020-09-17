@@ -7,7 +7,7 @@ export const initialPosition = {
 
 export const popupConfig = {
     maxPopupYOffset: -500,
-    gotoPopupYOffset: -300, 
+    gotoPopupYOffset: -300,
     maxYVelocity: 1.5
 }
 
@@ -18,3 +18,4 @@ export const networkErrorText = "Не вдалось під'єднатись д�
 export const locationErrorTitle = "Локація"
 
 export const locationErrorText = "Не вдалось отримати місцеположення!"
+

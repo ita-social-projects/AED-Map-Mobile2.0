@@ -59,7 +59,7 @@ const MapHolder = () => {
         showsUserLocation={true}
         loadingEnabled={true}
         >
-          <TouchableOpacity style={styles.myPlaceButton} onPress={myPlacePress}>
+          <TouchableOpacity onPress={myPlacePress}>
             <MyPlaceButton/>
           </TouchableOpacity>
           {markers}
