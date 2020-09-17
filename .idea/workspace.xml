@@ -2,46 +2,11 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="bd4a8ed0-b444-45a0-97a8-4b929d05c70c" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/.idea/deffApp.iml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/inspectionProfiles/Project_Default.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/jsLinters/jshint.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/modules.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/vcs.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/assets/def-icon/pin-selected-icon.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/components/buttons/my-place-button/index.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/components/buttons/my-place-button/my-place-button.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/components/loading-panel/loading-panel.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/hooks/useLocation.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/hooks/useNetwork.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/hooks/useNextDeff.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/hooks/useServices.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/utils/alerts.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/utils/findDestinationRegion.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/.gitignore" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/app.json" beforeDir="false" afterPath="$PROJECT_DIR$/app.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/components/buttons/emergency-button/emergency-button.js" beforeDir="false" afterPath="$PROJECT_DIR$/components/buttons/emergency-button/emergency-button.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/components/control-panel/control-panel.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/components/control-panel/index.js" beforeDir="false" afterPath="$PROJECT_DIR$/components/loading-panel/index.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/components/def-info/def-info.js" beforeDir="false" afterPath="$PROJECT_DIR$/components/def-info/def-info.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/components/loading-bar/loading-bar.js" beforeDir="false" afterPath="$PROJECT_DIR$/components/loading-bar/loading-bar.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/components/main-holder/main-holder.js" beforeDir="false" afterPath="$PROJECT_DIR$/components/main-holder/main-holder.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/components/map-holder/components/def-pin/def-pin.js" beforeDir="false" afterPath="$PROJECT_DIR$/components/map-holder/components/def-pin/def-pin.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/components/map-holder/components/direction/direction.js" beforeDir="false" afterPath="$PROJECT_DIR$/components/map-holder/components/direction/direction.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/components/map-holder/map-holder.js" beforeDir="false" afterPath="$PROJECT_DIR$/components/map-holder/map-holder.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/components/popup/popup.js" beforeDir="false" afterPath="$PROJECT_DIR$/components/popup/popup.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/components/search/search.js" beforeDir="false" afterPath="$PROJECT_DIR$/components/search/search.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/config/index.js" beforeDir="false" afterPath="$PROJECT_DIR$/config/index.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/hooks/useMarkers.js" beforeDir="false" afterPath="$PROJECT_DIR$/hooks/useMarkers.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/hooks/useLocation.js" beforeDir="false" afterPath="$PROJECT_DIR$/hooks/useLocation.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/hooks/useNetwork.js" beforeDir="false" afterPath="$PROJECT_DIR$/hooks/useNetwork.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/package-lock.json" beforeDir="false" afterPath="$PROJECT_DIR$/package-lock.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/package.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/redux/actions/index.js" beforeDir="false" afterPath="$PROJECT_DIR$/redux/actions/index.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/redux/operations/index.js" beforeDir="false" afterPath="$PROJECT_DIR$/redux/operations/index.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/redux/reducer/index.js" beforeDir="false" afterPath="$PROJECT_DIR$/redux/reducer/index.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/redux/saga/index.js" beforeDir="false" afterPath="$PROJECT_DIR$/redux/saga/index.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/redux/types/index.js" beforeDir="false" afterPath="$PROJECT_DIR$/redux/types/index.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/utils/findCamera.js" beforeDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -101,7 +66,8 @@
       <workItem from="1600164732945" duration="597000" />
       <workItem from="1600244757650" duration="346000" />
       <workItem from="1600257055439" duration="6146000" />
-      <workItem from="1600282040429" duration="15028000" />
+      <workItem from="1600282040429" duration="15227000" />
+      <workItem from="1600334710191" duration="3580000" />
     </task>
     <servers />
   </component>
@@ -130,6 +96,10 @@
       <screen x="62" y="0" width="1474" height="864" />
     </state>
     <state x="579" y="174" key="FileChooserDialogImpl/62.0.1474.864@62.0.1474.864" timestamp="1599929023933" />
+    <state x="512" y="148" key="MultipleFileMergeDialog" timestamp="1600371948940">
+      <screen x="62" y="0" width="1474" height="864" />
+    </state>
+    <state x="512" y="148" key="MultipleFileMergeDialog/62.0.1474.864@62.0.1474.864" timestamp="1600371948940" />
     <state x="512" y="154" key="RollbackChangesDialog" timestamp="1600271159490">
       <screen x="62" y="0" width="1474" height="864" />
     </state>
@@ -146,16 +116,5 @@
       <screen x="62" y="0" width="1474" height="864" />
     </state>
     <state x="462" y="181" width="672" height="678" key="search.everywhere.popup/62.0.1474.864@62.0.1474.864" timestamp="1600288085999" />
-  </component>
-  <component name="XDebuggerManager">
-    <breakpoint-manager>
-      <breakpoints>
-        <line-breakpoint enabled="true" type="javascript">
-          <url>file://$PROJECT_DIR$/hooks/useServices.js</url>
-          <properties lambdaOrdinal="-1" />
-          <option name="timeStamp" value="1" />
-        </line-breakpoint>
-      </breakpoints>
-    </breakpoint-manager>
   </component>
 </project>
