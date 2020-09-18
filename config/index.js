@@ -22,9 +22,6 @@ export const myPlaceButtonConfig = {
         height: 30,
         margin: 10,
         padding: 10,
-        borderRadius: 5,
-        borderWidth: 0.3,
-        backgroundColor: 'white',
     }
 };
 
