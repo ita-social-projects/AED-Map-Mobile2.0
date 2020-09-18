@@ -26,4 +26,4 @@ const useLocation = () => {
     },[dispatch]);
 };
 
-export default  useLocation;
+export default useLocation;

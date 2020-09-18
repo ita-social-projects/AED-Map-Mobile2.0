@@ -1,8 +1,8 @@
 import React, {useEffect, useState} from 'react';
 import {useSelector,useDispatch} from 'react-redux';
 import {StyleSheet, View, Animated, PanResponder} from 'react-native';
-import DefInfoContent from '../def-info';
-import {popupConfig} from '../../config';
+import DefInfoContent from '../../components/def-info';
+import {appConfig, popupConfig} from '../../config';
 import { setDeff } from '../../redux/actions';
 
 const {maxPopupYOffset, gotoPopupYOffset, maxYVelocity} = popupConfig;
@@ -85,7 +85,7 @@ const styles = StyleSheet.create({
     width: '100%',
     height: '100%',
     position: 'relative',
-    backgroundColor: '#282c34',
+    backgroundColor: appConfig.backgroundColor,
     borderTopColor: '#000'
   },
   popupHandle: {

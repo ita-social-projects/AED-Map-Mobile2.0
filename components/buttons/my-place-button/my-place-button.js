@@ -1,10 +1,11 @@
 import React from 'react';
 import {StyleSheet, View, Image} from 'react-native';
+import {myPlaceButtonConfig} from "../../../config";
 
 
 const MyPlaceButton = () => {
   return (
-    <View style={styles.myPlaceButtonHolder}>
+    <View>
         <Image 
         style={styles.myPlaceButtonImage}
         source={{
@@ -17,9 +18,5 @@ const MyPlaceButton = () => {
 export default MyPlaceButton;
 
 const styles = StyleSheet.create({
-  myPlaceButtonImage: {
-    width: 30,
-    height: 30,
-    margin: 10,
-  },
+  myPlaceButtonImage: myPlaceButtonConfig.imageStyle
 });

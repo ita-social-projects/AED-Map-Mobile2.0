@@ -10,6 +10,7 @@ import {
 import { SearchBar } from 'react-native-elements';
 import nearestDeff from '../../utils/nearestDeff';
 import { getDeff, setSelectedDeff } from '../../redux/actions';
+import {appConfig, searchPanelConfig} from "../../config";
 
 const Search = () => {
   const dispatch = useDispatch()
@@ -54,8 +55,8 @@ const styles = StyleSheet.create({
   searchBar: {
     width: '100%',
     justifyContent: 'center',
-    backgroundColor: '#282c34',
-    paddingTop: Platform.OS === 'ios' ? 20 : 20,
+    backgroundColor: appConfig.backgroundColor,
+    paddingTop: searchPanelConfig.paddingTop
   },
 });
 

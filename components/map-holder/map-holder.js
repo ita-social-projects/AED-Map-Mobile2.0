@@ -2,7 +2,7 @@ import React,{useEffect,useRef} from 'react';
 import {useDispatch,useSelector} from 'react-redux';
 import MapView from 'react-native-map-clustering';
 import { StyleSheet,Dimensions, TouchableOpacity } from 'react-native';
-import {initialPosition} from '../../config';
+import {cameraConfig, initialPosition} from '../../config';
 import useMarkers from '../../hooks/useMarkers'
 import Direction from './components/direction';
 import MyPlaceButton from '../buttons/my-place-button'
@@ -16,7 +16,6 @@ const MapHolder = () => {
     direction: state.direction,
     userLocation: state.userLocation,
   }));
-
   let mapRef= useRef(null);
 
   useEffect(() => {
@@ -26,10 +25,10 @@ const MapHolder = () => {
           longitude: currentDeff.location.coordinates[0],
           latitude: currentDeff.location.coordinates[1]
         },
-        zoom: 15,
-        altitude: 10000
+        zoom: cameraConfig.zoom,
+        altitude: cameraConfig.altitude
       };
-      mapRef.current.animateCamera(camera,{duration: 1000});
+      mapRef.current.animateCamera(camera,cameraConfig.animateDuration);
     }
   },[dispatch,currentDeff]);
   
@@ -39,17 +38,23 @@ const MapHolder = () => {
         longitude: userLocation[0],
         latitude: userLocation[1],
       },
-      zoom: 15,
-      altitude: 10000
-    }, 1000)
-  }
+      zoom: cameraConfig.zoom,
+      altitude: cameraConfig.altitude
+    }, cameraConfig.animateDuration)
+  };
 
   useEffect(() => {
     if (mapRef.current && direction) {
         const region = findDestinationRegion(direction);
-        mapRef.current.animateToRegion(region,1000);
+        mapRef.current.animateToRegion(region,cameraConfig.animateDuration);
     }
   },[dispatch,direction]);
+
+    const myPlaceButton = userLocation
+        ? (<TouchableOpacity onPress={myPlacePress}>
+            <MyPlaceButton/>
+        </TouchableOpacity>)
+        : null;
 
     return (
         <MapView
@@ -59,9 +64,7 @@ const MapHolder = () => {
         showsUserLocation={true}
         loadingEnabled={true}
         >
-          <TouchableOpacity onPress={myPlacePress}>
-            <MyPlaceButton/>
-          </TouchableOpacity>
+          {myPlaceButton}
           {markers}
           <Direction/>
         </MapView>
