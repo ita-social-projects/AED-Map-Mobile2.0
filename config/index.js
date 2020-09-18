@@ -13,7 +13,9 @@ export const searchPanelConfig = {
 export const cameraConfig = {
     zoom: 15,
     altitude: 10000,
-    animateDuration: 1000
+    animateDuration: 1000,
+    latitudeZoomCoeff: 0.4,
+    latitudeDeltaZoomCoeff: 0.8
 };
 
 export const myPlaceButtonConfig = {

@@ -1,3 +1,5 @@
+import {cameraConfig} from "../config";
+
 export default findDestinationRegion = (coords=[]) => {
     const coordsArr = Array.from(coords);
 
@@ -18,8 +20,8 @@ export default findDestinationRegion = (coords=[]) => {
 
     return {
         longitude: avgLongitude,
-        latitude: avgLatitude - longitudeDelta*0.4,
-        longitudeDelta: longitudeDelta + longitudeDelta*0.8,
+        latitude: avgLatitude - longitudeDelta*cameraConfig.latitudeZoomCoeff,
+        longitudeDelta: longitudeDelta + longitudeDelta*cameraConfig.latitudeDeltaZoomCoeff,
         latitudeDelta: latitudeDelta
     }
 }
