@@ -7,7 +7,7 @@ import {
   Animated,
   Image
 } from 'react-native';
-import { setDrivingMode, setDeff, setDestLocation } from '../../redux/actions';
+import { setDrivingMode, setDeff, setDestLocation, setDirection } from '../../redux/actions';
 import {appConfig, navBarConfig} from "../../config";
 
 const MoveTypes = () => {
@@ -69,6 +69,7 @@ const MoveTypes = () => {
           dispatch(setDrivingMode(null));
           dispatch(setDeff(null));
           dispatch(setDestLocation(null));
+          dispatch(setDirection(null))
         }
       }>
         <View style={styles.closeTypeButton}>
