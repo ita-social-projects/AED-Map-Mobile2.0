@@ -8,7 +8,8 @@ import {
     SET_DIRECTION,
     SET_SEARCH_LOCATION,
     SET_SELECTED_DEFF,
-    SET_LOADING, SET_DEFF_LOADING
+    SET_LOADING,
+    SET_DEFF_LOADING,
 } from '../types'
 
 const initialState = {
@@ -51,6 +52,6 @@ const reducer = (state = initialState, action = {}) => {
         default: 
             return state
     }
-}
+};
 
 export default reducer;

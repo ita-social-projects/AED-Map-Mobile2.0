@@ -1,8 +1,9 @@
 import React from 'react';
 import {Provider} from 'react-redux';
 import { StyleSheet,View } from 'react-native';
-import MainHolder from './components/main-holder';
+import MainHolder from './containers/main-holder';
 import configureStore from './redux/store'
+import {appConfig} from "./config";
 
 const store = configureStore();
 
@@ -23,7 +24,7 @@ const styles = StyleSheet.create({
     flexDirection: 'column',
     justifyContent: 'flex-start',
     alignItems: 'center',
-    backgroundColor: '#F5FCFF',
+    backgroundColor: appConfig.backgroundColor,
     position: 'relative'
   }
 });

@@ -1,11 +1,12 @@
 import React from 'react'
-import LoadingBar from "../loading-bar";
+import LoadingBar from "../../components/loading-bar";
 import {Dimensions, StyleSheet, View} from "react-native";
+import {appConfig} from "../../config";
 
 const LoadingPanel = () => {
     return (
     <View style={styles.loadingBar}>
-        <LoadingBar/>
+        <LoadingBar color={appConfig.primarySpinnerColor}/>
     </View>
     );
 };

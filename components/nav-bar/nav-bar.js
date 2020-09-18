@@ -8,28 +8,12 @@ import {
   Image
 } from 'react-native';
 import { setDrivingMode, setDeff, setDestLocation } from '../../redux/actions';
-
-// const additionalStyle = {
-//   driving: {
-//     lineColor: '#00f',
-//     lineDasharray: [3, 0]
-//   },
-//   cycling: {
-//     lineColor: '#00f',
-//     lineDasharray: [2, 2]
-//   },
-//   walking: {
-//     lineColor: '#00f',
-//     lineDasharray: [1, 3]
-//   }
-// };
+import {appConfig, navBarConfig} from "../../config";
 
 const MoveTypes = () => {
-  const [directionValue] = useState(new Animated.ValueXY({x: -200, y: 0}));
-  const dispatch = useDispatch()
-  const destLocation = useSelector((state) => state.destLocation)
+  const dispatch = useDispatch();
 
-  const currentDeff = useSelector(state => state.currentDeff)
+  const currentDeff = useSelector(state => state.currentDeff);
 
   const setAsDestination = () => {
       if(currentDeff){
@@ -103,23 +87,13 @@ export default MoveTypes;
 const styles = StyleSheet.create({
   driveTypes: {
     padding: 10,
-    backgroundColor: '#282c34',
+    backgroundColor: appConfig.backgroundColor,
     flexDirection: 'row',
     justifyContent: 'space-between',
     width: '100%'
   },
-  driveTypeButton: {
-    width: 40,
-    height: 40,
-    padding: 3,
-    textAlign: 'center'
-  },
-  closeTypeButton: {
-    width: 40,
-    height: 40,
-    padding: 5,
-    textAlign: 'center'
-  },
+  driveTypeButton: navBarConfig.typeButtonStyle(3),
+  closeTypeButton: navBarConfig.typeButtonStyle(5),
   driveImg: {
     width: '100%',
     height: '100%',

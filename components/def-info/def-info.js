@@ -1,4 +1,4 @@
-import React, {useState} from 'react';
+import React from 'react';
 import {
   StyleSheet,
   Text,
@@ -12,7 +12,7 @@ import {
 import {useDispatch,useSelector} from 'react-redux';
 import { setDeff } from '../../redux/actions';
 import NavBar from '../nav-bar';
-import { popupConfig } from '../../config';
+import {appConfig, popupConfig} from '../../config';
 import useNextDeff from "../../hooks/useNextDeff";
 import LoadingBar from "../loading-bar";
 
@@ -28,7 +28,7 @@ const DefInfoContent = () => {
   if (loading) {
     return (
           <View style={styles.loadingBar}>
-            <LoadingBar color={'white'}/>
+            <LoadingBar color={appConfig.secondarySpinnerColor}/>
           </View>
     )
   }
@@ -67,7 +67,7 @@ const DefInfoContent = () => {
               <Text>Знайти наступний дефібрилятор</Text>
             </TouchableOpacity>) : null}
         <View style={styles.title}>
-          <NavBar/>
+          {userLocation ? <NavBar/> : null}
           <Text style={styles.popupText}>{currentDeff.title}</Text>
         </View>
         <Text style={styles.popupText}>{currentDeff.address}</Text>
@@ -92,13 +92,13 @@ export default DefInfoContent;
 const styles = StyleSheet.create({
   popupText: {
     fontSize: 20,
-    color: '#fcfcfc',
+    color: popupConfig.textColor,
     paddingBottom: 5,
     marginBottom: 5
   },
   nextBtn: {
     alignItems: 'center',
-    backgroundColor: '#ffddcc',
+    backgroundColor: popupConfig.nextButtonColor,
     padding: 5,
     marginVertical: 5
   },
