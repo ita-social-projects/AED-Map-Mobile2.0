@@ -1,7 +1,7 @@
 import React from 'react'
 import LoadingBar from "../../components/loading-bar";
 import {Dimensions, StyleSheet, View} from "react-native";
-import {appConfig} from "../../config";
+import {appConfig, loadingBarConfig} from "../../config";
 
 const LoadingPanel = () => {
     return (
@@ -14,8 +14,8 @@ const LoadingPanel = () => {
 const styles = StyleSheet.create({
     loadingBar: {
         position: "absolute",
-        left: Dimensions.get("window").width /2 - 30,
-        top: Dimensions.get('window').height /2 - 30,
+        left: Dimensions.get("window").width /2 - loadingBarConfig.size/2,
+        top: Dimensions.get('window').height /2 - loadingBarConfig.size/2,
         zIndex: 1
     },
 });

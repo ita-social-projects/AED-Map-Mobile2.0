@@ -1,7 +1,7 @@
 import React,{useEffect,useRef} from 'react';
 import {useDispatch,useSelector} from 'react-redux';
 import MapView from 'react-native-map-clustering';
-import { StyleSheet,Dimensions, TouchableOpacity } from 'react-native';
+import { StyleSheet,Dimensions, TouchableOpacity,View } from 'react-native';
 import {cameraConfig, initialPosition} from '../../config';
 import useMarkers from '../../hooks/useMarkers'
 import Direction from './components/direction';
@@ -51,23 +51,25 @@ const MapHolder = () => {
   },[dispatch,direction]);
 
     const myPlaceButton = userLocation
-        ? (<TouchableOpacity onPress={myPlacePress}>
+        ? (<TouchableOpacity style={styles.myPlaceButton} onPress={myPlacePress}>
             <MyPlaceButton/>
-        </TouchableOpacity>)
+          </TouchableOpacity>)
         : null;
 
     return (
-        <MapView
-        ref={mapRef}
-        style={styles.mapStyle}
-        initialRegion={initialPosition}
-        showsUserLocation={true}
-        loadingEnabled={true}
-        >
+        <View>
           {myPlaceButton}
-          {markers}
-          <Direction/>
-        </MapView>
+          <MapView
+          ref={mapRef}
+          style={styles.mapStyle}
+          initialRegion={initialPosition}
+          showsUserLocation={true}
+          loadingEnabled={true}
+          >
+            {markers}
+            <Direction/>
+          </MapView>
+        </View>
     )
   };
 
@@ -75,7 +77,13 @@ const styles = StyleSheet.create({
     mapStyle: {
       width: Dimensions.get('window').width,
       height: Dimensions.get('window').height,
-    },  
+    },
+    myPlaceButton: {
+      position: "absolute",
+      top: 10,
+      left: 5,
+      zIndex: 1
+    }
 });
 
 export default MapHolder;

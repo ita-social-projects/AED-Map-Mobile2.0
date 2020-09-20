@@ -80,6 +80,10 @@ export const popupConfig = {
     nextButtonColor: '#ffddcc'
 };
 
+export const loadingBarConfig = {
+   size: 60
+};
+
 export const networkErrorTitle = "Мережа";
 
 export const networkErrorText = "Не вдалось під'єднатись до мережі";

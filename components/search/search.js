@@ -22,12 +22,12 @@ const Search = () => {
   }))
 
   const handleSearchChange = async (text) => {
-    setSearch(text)
-    const searchLocation = await Location.geocodeAsync(text)
-    const searchLocationArray = [searchLocation[0].longitude, searchLocation[0].latitude]
+    setSearch(text);
+    const searchLocation = await Location.geocodeAsync(text);
+    const searchLocationArray = [searchLocation[0].longitude, searchLocation[0].latitude];
     const nearbyDefs = nearestDeff(deffData,searchLocationArray);
     if(nearbyDefs.length) {
-      dispatch(setSelectedDeff(nearbyDefs[0].id))
+      dispatch(setSelectedDeff(nearbyDefs[0].id));
       dispatch(getDeff(nearbyDefs[0].id))
     }
     dispatch(
