@@ -93,7 +93,7 @@ const styles = StyleSheet.create({
   popupText: {
     fontSize: 20,
     color: popupConfig.textColor,
-    paddingBottom: 5,
+    paddingBottom: Platform.OS === 'ios' ? 0 : 5,
     marginBottom: 5
   },
   nextBtn: {
@@ -103,7 +103,7 @@ const styles = StyleSheet.create({
     marginVertical: 5
   },
   phone: {
-    marginVertical: 10
+    marginVertical: Platform.OS === 'ios' ? 0 : 10
   },
   contentHolder: {
     flex: 1,
