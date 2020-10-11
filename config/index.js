@@ -1,4 +1,4 @@
-import {Platform} from "react-native";
+import {Linking, Platform} from "react-native";
 
 export const appConfig = {
   backgroundColor: '#282c34',
@@ -84,11 +84,15 @@ export const loadingBarConfig = {
    size: 60
 };
 
-export const networkErrorTitle = "Мережа";
+export const networkErrorAlert = {
+    title: "Мережа",
+    text: "Не вдалось під'єднатись до мережі"
+};
 
-export const networkErrorText = "Не вдалось під'єднатись до мережі";
-
-export const locationErrorTitle = "Локація";
-
-export const locationErrorText = "Не вдалось отримати місцеположення!";
+export const locationErrorAlert = {
+    title: "Локація",
+    text: "Не вдалось отримати місцеположення!",
+    buttonTitle: "Відкрити налаштування",
+    handler: () => Linking.openURL('app-settings:root')
+};
 
