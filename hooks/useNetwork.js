@@ -1,6 +1,6 @@
 import {useNetInfo} from '@react-native-community/netinfo';
 import {ErrorAlertGenerator} from "../utils/alerts";
-import {networkErrorTitle,networkErrorText} from '../config'
+import {networkErrorAlert} from '../config'
 import {useEffect,useRef} from "react";
 
 
@@ -10,7 +10,11 @@ const useNetwork = () => {
 
     useEffect(() => {
         if(isMounted.current) {
-            !network.isConnected && ErrorAlertGenerator(networkErrorTitle, networkErrorText);
+            !network.isConnected
+            && ErrorAlertGenerator(
+                networkErrorAlert.title,
+                networkErrorAlert.text
+            );
         }
         else {
             isMounted.current = true;
