@@ -3,11 +3,10 @@
   <component name="ChangeListManager">
     <list default="true" id="bd4a8ed0-b444-45a0-97a8-4b929d05c70c" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/components/loading-bar/loading-bar.js" beforeDir="false" afterPath="$PROJECT_DIR$/components/loading-bar/loading-bar.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/components/map-holder/map-holder.js" beforeDir="false" afterPath="$PROJECT_DIR$/components/map-holder/map-holder.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/components/search/search.js" beforeDir="false" afterPath="$PROJECT_DIR$/components/search/search.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/config/index.js" beforeDir="false" afterPath="$PROJECT_DIR$/config/index.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/containers/loading-panel/loading-panel.js" beforeDir="false" afterPath="$PROJECT_DIR$/containers/loading-panel/loading-panel.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/App.js" beforeDir="false" afterPath="$PROJECT_DIR$/App.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app.json" beforeDir="false" afterPath="$PROJECT_DIR$/app.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/package-lock.json" beforeDir="false" afterPath="$PROJECT_DIR$/package-lock.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/package.json" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -107,10 +106,10 @@
       <screen x="62" y="0" width="1474" height="864" />
     </state>
     <state x="512" y="148" key="MultipleFileMergeDialog/62.0.1474.864@62.0.1474.864" timestamp="1600371948940" />
-    <state x="512" y="154" key="RollbackChangesDialog" timestamp="1600380709227">
+    <state x="512" y="154" key="RollbackChangesDialog" timestamp="1602423214506">
       <screen x="62" y="0" width="1474" height="864" />
     </state>
-    <state x="512" y="154" key="RollbackChangesDialog/62.0.1474.864@62.0.1474.864" timestamp="1600380709227" />
+    <state x="512" y="154" key="RollbackChangesDialog/62.0.1474.864@62.0.1474.864" timestamp="1602423214506" />
     <state x="308" y="75" key="SettingsEditor" timestamp="1600033749660">
       <screen x="62" y="0" width="1474" height="864" />
     </state>
