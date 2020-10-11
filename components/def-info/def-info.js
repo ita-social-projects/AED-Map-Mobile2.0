@@ -15,6 +15,7 @@ import NavBar from '../nav-bar';
 import {appConfig, popupConfig} from '../../config';
 import useNextDeff from "../../hooks/useNextDeff";
 import LoadingBar from "../loading-bar";
+import {formatPhoneNumber} from "../../utils/formatPhoneNumber";
 
 const DefInfoContent = () => {
   const findNext = useNextDeff();
@@ -52,7 +53,7 @@ const DefInfoContent = () => {
           <Button
             color="gray"
             key={singlePhone}
-            title={singlePhone}
+            title={formatPhoneNumber(singlePhone)}
             onPress={() => makePhoneCall(singlePhone)}
           />
         </TouchableOpacity>

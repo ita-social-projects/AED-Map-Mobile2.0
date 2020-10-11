@@ -2,8 +2,10 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="bd4a8ed0-b444-45a0-97a8-4b929d05c70c" name="Default Changelist" comment="">
+      <change afterPath="$PROJECT_DIR$/utils/formatPhoneNumber.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/components/def-info/def-info.js" beforeDir="false" afterPath="$PROJECT_DIR$/components/def-info/def-info.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/components/nav-bar/nav-bar.js" beforeDir="false" afterPath="$PROJECT_DIR$/components/nav-bar/nav-bar.js" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -71,7 +73,7 @@
       <workItem from="1600282040429" duration="15227000" />
       <workItem from="1600334710191" duration="3580000" />
       <workItem from="1600418688899" duration="2269000" />
-      <workItem from="1602429229415" duration="556000" />
+      <workItem from="1602429229415" duration="1480000" />
     </task>
     <servers />
   </component>
@@ -96,10 +98,10 @@
       <screen x="62" y="0" width="1474" height="864" />
     </state>
     <state x="155" y="93" width="1288" height="678" key="DiffContextDialog/62.0.1474.864@62.0.1474.864" timestamp="1599936209456" />
-    <state x="579" y="174" key="FileChooserDialogImpl" timestamp="1599929023933">
+    <state x="579" y="174" key="FileChooserDialogImpl" timestamp="1602430548533">
       <screen x="62" y="0" width="1474" height="864" />
     </state>
-    <state x="579" y="174" key="FileChooserDialogImpl/62.0.1474.864@62.0.1474.864" timestamp="1599929023933" />
+    <state x="579" y="174" key="FileChooserDialogImpl/62.0.1474.864@62.0.1474.864" timestamp="1602430548533" />
     <state x="512" y="148" key="MultipleFileMergeDialog" timestamp="1600371948940">
       <screen x="62" y="0" width="1474" height="864" />
     </state>

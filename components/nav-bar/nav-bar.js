@@ -74,7 +74,7 @@ const MoveTypes = () => {
       }>
         <View style={styles.closeTypeButton}>
           <Image
-            style={styles.driveImg}
+            style={styles.closeImg}
             source={require('../../assets/move-types/close_cross.png')}
           />
         </View>
@@ -99,5 +99,10 @@ const styles = StyleSheet.create({
     width: '100%',
     height: '100%',
     tintColor: '#fff'
+  },
+  closeImg: {
+    width: '100%',
+    height: '100%',
+    tintColor: 'red'
   }
 });
