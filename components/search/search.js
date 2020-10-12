@@ -1,34 +1,31 @@
 import React, { useState } from 'react';
-import { useDispatch,useSelector } from 'react-redux';
-import { setSearchLocation } from '../../redux/actions';
+import { useDispatch, useSelector } from 'react-redux';
 import * as Location from 'expo-location';
-import {
-  StyleSheet,
-  View,
-  Platform,
-} from 'react-native';
+import { getDeff, setSelectedDeff, setSearchLocation } from '../../redux/actions';
+import { StyleSheet, View, Platform } from 'react-native';
 import { SearchBar } from 'react-native-elements';
 import nearestDeff from '../../utils/nearestDeff';
-import { getDeff, setSelectedDeff } from '../../redux/actions';
-import { appConfig, searchPanelConfig } from "../../config";
+import { appConfig, isAndroidOS, searchPanelConfig } from "../../config";
 
-const isAndroidOS = Platform.OS === 'android'
+const { iconColor, paddingTop, placeholderColor } = searchPanelConfig
+const { backgroundColor } = appConfig
 
 const Search = () => {
   const dispatch = useDispatch()
   const [search, setSearch] = useState('')
 
-  const { deffData} = useSelector((state) => ({
+  const {deffData} = useSelector((state) => ({
     deffData: state.deffData
   }))
 
-  const handleSearchChange = async (text) => {
-    setSearch(text);
-    const searchLocation = await Location.geocodeAsync(text);
-    if(searchLocation[0]) {
+  const handleSearchChange = (searchText) => setSearch(searchText)
+
+  const handleSearchSubmit = async () => {
+    const searchLocation = await Location.geocodeAsync(search);
+    if (searchLocation[0]) {
       const searchLocationArray = [searchLocation[0].longitude, searchLocation[0].latitude];
-      const nearbyDefs = nearestDeff(deffData,searchLocationArray);
-      if(nearbyDefs.length) {
+      const nearbyDefs = nearestDeff(deffData, searchLocationArray);
+      if (nearbyDefs.length) {
         dispatch(setSelectedDeff(nearbyDefs[0].id));
         dispatch(getDeff(nearbyDefs[0].id))
       }
@@ -38,32 +35,39 @@ const Search = () => {
     }
   };
 
-    return (
-        <View style={styles.searchBar}>
-          <SearchBar
-            round
-            searchIcon={styles.icon}
-            cancelIcon={styles.icon}
-            clearIcon={styles.icon}
-            onChangeText={text => handleSearchChange(text)}
-            placeholder="Type Here..."
-            value={search}
-            platform={Platform.OS}
-            cancelButtonTitle='Cancel'
-            containerStyle={styles.container}
-            inputStyle={ isAndroidOS && styles.input }
-            placeholderTextColor={ isAndroidOS && searchPanelConfig.placeholderColor }
-          />
-        </View>
-    )
+  const searchIconProps = {
+    color: iconColor,
+    size: 24,
+    onPress: handleSearchSubmit
+  }
+
+  return (
+    <View style={styles.searchBar}>
+      <SearchBar
+        round
+        containerStyle={styles.container}
+        inputStyle={isAndroidOS && styles.input}
+        searchIcon={searchIconProps}
+        cancelIcon={styles.icon}
+        clearIcon={styles.icon}
+        placeholderTextColor={isAndroidOS && placeholderColor}
+        placeholder="Type Here..."
+        cancelButtonTitle='Cancel'
+        platform={Platform.OS}
+        onChangeText={handleSearchChange}
+        onSubmitEditing={handleSearchSubmit}
+        value={search}
+      />
+    </View>
+  )
 };
 
 const styles = StyleSheet.create({
   searchBar: {
     width: '100%',
     justifyContent: 'center',
-    backgroundColor: appConfig.backgroundColor,
-    paddingTop: searchPanelConfig.paddingTop
+    backgroundColor: backgroundColor,
+    paddingTop: paddingTop
   },
   container: {
     backgroundColor: '#282c34'
@@ -75,7 +79,7 @@ const styles = StyleSheet.create({
     paddingHorizontal: 10
   },
   icon: {
-    color: isAndroidOS && searchPanelConfig.inputColor,
+    color: iconColor,
     fontSize: 24
   }
 });

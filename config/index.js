@@ -1,5 +1,7 @@
 import {Linking, Platform} from "react-native";
 
+export const isAndroidOS = Platform.OS === 'android'
+
 export const appConfig = {
   backgroundColor: '#282c34',
   primarySpinnerColor: 'green',
@@ -9,7 +11,7 @@ export const appConfig = {
 export const searchPanelConfig = {
   paddingTop: Platform.OS === 'ios' ? 20 : 20,
   placeholderColor: '#909090',
-  inputColor: '#c7c5c5',
+  iconColor: isAndroidOS && '#c7c5c5'
 };
 
 export const cameraConfig = {
