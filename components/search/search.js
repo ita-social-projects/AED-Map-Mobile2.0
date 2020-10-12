@@ -14,7 +14,7 @@ const Search = () => {
   const dispatch = useDispatch()
   const [search, setSearch] = useState('')
 
-  const {deffData} = useSelector((state) => ({
+  const { deffData } = useSelector((state) => ({
     deffData: state.deffData
   }))
 
@@ -46,11 +46,11 @@ const Search = () => {
       <SearchBar
         round
         containerStyle={styles.container}
-        inputStyle={isAndroidOS && styles.input}
+        inputStyle={ isAndroidOS && styles.input }
         searchIcon={searchIconProps}
         cancelIcon={styles.icon}
         clearIcon={styles.icon}
-        placeholderTextColor={isAndroidOS && placeholderColor}
+        placeholderTextColor={ isAndroidOS && placeholderColor }
         placeholder="Type Here..."
         cancelButtonTitle='Cancel'
         platform={Platform.OS}
