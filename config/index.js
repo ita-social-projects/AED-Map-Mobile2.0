@@ -2,12 +2,14 @@ import {Linking, Platform} from "react-native";
 
 export const appConfig = {
   backgroundColor: '#282c34',
-    primarySpinnerColor: 'green',
-    secondarySpinnerColor: 'white'
+  primarySpinnerColor: 'green',
+  secondarySpinnerColor: 'white',
 };
 
 export const searchPanelConfig = {
-    paddingTop: Platform.OS === 'ios' ? 20 : 20,
+  paddingTop: Platform.OS === 'ios' ? 20 : 20,
+  placeholderColor: '#909090',
+  inputColor: '#c7c5c5',
 };
 
 export const cameraConfig = {

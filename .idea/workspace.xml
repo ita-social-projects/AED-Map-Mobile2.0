@@ -3,10 +3,8 @@
   <component name="ChangeListManager">
     <list default="true" id="bd4a8ed0-b444-45a0-97a8-4b929d05c70c" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/components/search/search.js" beforeDir="false" afterPath="$PROJECT_DIR$/components/search/search.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/config/index.js" beforeDir="false" afterPath="$PROJECT_DIR$/config/index.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/hooks/useLocation.js" beforeDir="false" afterPath="$PROJECT_DIR$/hooks/useLocation.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/hooks/useNetwork.js" beforeDir="false" afterPath="$PROJECT_DIR$/hooks/useNetwork.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/utils/alerts.js" beforeDir="false" afterPath="$PROJECT_DIR$/utils/alerts.js" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -27,11 +25,11 @@
   <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
   <component name="ProjectViewState">
     <option name="hideEmptyMiddlePackages" value="true" />
-    <option name="showExcludedFiles" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
   <component name="PropertiesComponent">
     <property name="ASKED_SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
+    <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
     <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="last_opened_file_path" value="$PROJECT_DIR$" />
@@ -45,14 +43,16 @@
     <property name="node.js.selected.package.jscs" value="" />
     <property name="node.js.selected.package.standard" value="" />
     <property name="nodejs_package_manager_path" value="npm" />
-    <property name="settings.editor.selected.configurable" value="preferences.general" />
-    <property name="ts.external.directory.path" value="F:\Programs\WebStorm\WebStorm 2019.3.3\plugins\JavaScriptLanguage\jsLanguageServicesImpl\external" />
+    <property name="settings.editor.selected.configurable" value="preferences.lookFeel" />
+    <property name="ts.external.directory.path" value="$APPLICATION_HOME_DIR$/plugins/JavaScriptLanguage/jsLanguageServicesImpl/external" />
+    <property name="vue.rearranger.settings.migration" value="true" />
   </component>
   <component name="RecentsManager">
     <key name="MoveFile.RECENT_KEYS">
       <recent name="D:\Projects\ReactNativeProjects\deff-app2.0\deffApp\containers" />
     </key>
   </component>
+  <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
   <component name="SvnConfiguration">
     <configuration />
   </component>
@@ -75,24 +75,24 @@
       <workItem from="1600334710191" duration="3580000" />
       <workItem from="1600418688899" duration="2269000" />
       <workItem from="1602429229415" duration="5488000" />
+      <workItem from="1602502638193" duration="9376000" />
     </task>
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
-    <option name="version" value="1" />
+    <option name="version" value="3" />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
     <option name="TAB_STATES">
       <map>
         <entry key="MAIN">
           <value>
-            <State>
-              <option name="COLUMN_ORDER" />
-            </State>
+            <State />
           </value>
         </entry>
       </map>
     </option>
+    <option name="oldMeFiltersMigrated" value="true" />
   </component>
   <component name="WindowStateProjectService">
     <state x="155" y="93" width="1288" height="678" key="DiffContextDialog" timestamp="1599936209456">
@@ -111,10 +111,11 @@
       <screen x="62" y="0" width="1474" height="864" />
     </state>
     <state x="512" y="154" key="RollbackChangesDialog/62.0.1474.864@62.0.1474.864" timestamp="1602423214506" />
-    <state x="308" y="75" key="SettingsEditor" timestamp="1600033749660">
-      <screen x="62" y="0" width="1474" height="864" />
+    <state x="282" y="31" width="1037" height="737" key="SettingsEditor" timestamp="1602511352287">
+      <screen x="66" y="27" width="1300" height="741" />
     </state>
     <state x="308" y="75" key="SettingsEditor/62.0.1474.864@62.0.1474.864" timestamp="1600033749660" />
+    <state x="282" y="31" width="1037" height="737" key="SettingsEditor/66.27.1300.741@66.27.1300.741" timestamp="1602511352287" />
     <state x="494" y="30" width="609" height="804" key="find.popup" timestamp="1600387166942">
       <screen x="62" y="0" width="1474" height="864" />
     </state>
