@@ -1,10 +1,30 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
+  <component name="BranchesTreeState">
+    <expand>
+      <path>
+        <item name="ROOT" type="e8cecc67:BranchNodeDescriptor" />
+        <item name="LOCAL_ROOT" type="e8cecc67:BranchNodeDescriptor" />
+      </path>
+      <path>
+        <item name="ROOT" type="e8cecc67:BranchNodeDescriptor" />
+        <item name="REMOTE_ROOT" type="e8cecc67:BranchNodeDescriptor" />
+      </path>
+      <path>
+        <item name="ROOT" type="e8cecc67:BranchNodeDescriptor" />
+        <item name="REMOTE_ROOT" type="e8cecc67:BranchNodeDescriptor" />
+        <item name="GROUP_NODE:origin" type="e8cecc67:BranchNodeDescriptor" />
+      </path>
+    </expand>
+    <select />
+  </component>
   <component name="ChangeListManager">
     <list default="true" id="bd4a8ed0-b444-45a0-97a8-4b929d05c70c" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/components/buttons/emergency-button/emergency-button.js" beforeDir="false" afterPath="$PROJECT_DIR$/components/buttons/emergency-button/emergency-button.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/components/search/search.js" beforeDir="false" afterPath="$PROJECT_DIR$/components/search/search.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/config/index.js" beforeDir="false" afterPath="$PROJECT_DIR$/config/index.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/redux/operations/index.js" beforeDir="false" afterPath="$PROJECT_DIR$/redux/operations/index.js" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -32,7 +52,7 @@
     <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
     <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/../Horondi/horondi_client_fe/node_modules/prettier" />
     <property name="node.js.detected.package.eslint" value="true" />
     <property name="node.js.detected.package.jscs" value="true" />
     <property name="node.js.detected.package.standard" value="true" />
@@ -43,7 +63,9 @@
     <property name="node.js.selected.package.jscs" value="" />
     <property name="node.js.selected.package.standard" value="" />
     <property name="nodejs_package_manager_path" value="npm" />
-    <property name="settings.editor.selected.configurable" value="preferences.lookFeel" />
+    <property name="prettierjs.PrettierConfiguration.Package" value="$PROJECT_DIR$/../Horondi/horondi_client_fe/node_modules/prettier" />
+    <property name="run.prettier.on.save" value="true" />
+    <property name="settings.editor.selected.configurable" value="settings.javascript.prettier" />
     <property name="ts.external.directory.path" value="$APPLICATION_HOME_DIR$/plugins/JavaScriptLanguage/jsLanguageServicesImpl/external" />
     <property name="vue.rearranger.settings.migration" value="true" />
   </component>
@@ -76,7 +98,9 @@
       <workItem from="1600418688899" duration="2269000" />
       <workItem from="1602429229415" duration="5488000" />
       <workItem from="1602502638193" duration="10854000" />
-      <workItem from="1602516000529" duration="4269000" />
+      <workItem from="1602516000529" duration="7325000" />
+      <workItem from="1602529210554" duration="642000" />
+      <workItem from="1602576123133" duration="1839000" />
     </task>
     <servers />
   </component>
@@ -100,10 +124,11 @@
       <screen x="62" y="0" width="1474" height="864" />
     </state>
     <state x="155" y="93" width="1288" height="678" key="DiffContextDialog/62.0.1474.864@62.0.1474.864" timestamp="1599936209456" />
-    <state x="579" y="174" key="FileChooserDialogImpl" timestamp="1602430548533">
-      <screen x="62" y="0" width="1474" height="864" />
+    <state x="362" y="153" width="416" height="498" key="FileChooserDialogImpl" timestamp="1602577715438">
+      <screen x="66" y="27" width="1300" height="741" />
     </state>
     <state x="579" y="174" key="FileChooserDialogImpl/62.0.1474.864@62.0.1474.864" timestamp="1602430548533" />
+    <state x="362" y="153" width="416" height="498" key="FileChooserDialogImpl/66.27.1300.741@66.27.1300.741" timestamp="1602577715438" />
     <state x="512" y="148" key="MultipleFileMergeDialog" timestamp="1600371948940">
       <screen x="62" y="0" width="1474" height="864" />
     </state>
@@ -112,11 +137,11 @@
       <screen x="62" y="0" width="1474" height="864" />
     </state>
     <state x="512" y="154" key="RollbackChangesDialog/62.0.1474.864@62.0.1474.864" timestamp="1602423214506" />
-    <state x="282" y="31" width="1037" height="737" key="SettingsEditor" timestamp="1602511352287">
+    <state x="104" y="31" width="1037" height="737" key="SettingsEditor" timestamp="1602577750480">
       <screen x="66" y="27" width="1300" height="741" />
     </state>
     <state x="308" y="75" key="SettingsEditor/62.0.1474.864@62.0.1474.864" timestamp="1600033749660" />
-    <state x="282" y="31" width="1037" height="737" key="SettingsEditor/66.27.1300.741@66.27.1300.741" timestamp="1602511352287" />
+    <state x="104" y="31" width="1037" height="737" key="SettingsEditor/66.27.1300.741@66.27.1300.741" timestamp="1602577750480" />
     <state x="494" y="30" width="609" height="804" key="find.popup" timestamp="1600387166942">
       <screen x="62" y="0" width="1474" height="864" />
     </state>
