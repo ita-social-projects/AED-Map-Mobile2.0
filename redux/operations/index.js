@@ -1,43 +1,43 @@
-import NetInfo from '@react-native-community/netinfo';
-import axios from 'axios';
-import AsyncStorage from '@react-native-community/async-storage';
-import { ErrorAlertGenerator } from '../../utils/alerts';
+import NetInfo from "@react-native-community/netinfo";
+import axios from "axios";
+import AsyncStorage from "@react-native-community/async-storage";
+import { ErrorAlertGenerator } from "../../utils/alerts";
+import { networkErrorAlert, SERVER_URL } from "../../config";
 
+const { text, title } = networkErrorAlert;
 
 const getAllDefs = async () => {
-    const network = await NetInfo.fetch();
+  const network = await NetInfo.fetch();
 
-    if(!network.isConnected) {
-        const defs = await AsyncStorage.getItem('defs');
+  if (!network.isConnected) {
+    const defs = await AsyncStorage.getItem("defs");
 
-        return (defs
-        ? JSON.parse(defs)
-        : []);
-    }
+    return defs ? JSON.parse(defs) : [];
+  }
 
-    const res = await axios.get('https://aed.nevidkladka.org/api/defibrillators')
-        .then(res => res)
-        .catch(err => err);
-
-    if (!res.data.mapDefs) {
-        ErrorAlertGenerator("Мережа","Сталась помилка при з'єднанні з сервером")
-        return [];
-    }
-
-    const defs = res.data.mapDefs;
-    await AsyncStorage.setItem('defs',JSON.stringify(defs));
-
-    return defs;
+  const res = await axios
+    .get(SERVER_URL)
+    .then(async (res) => {
+      const defs = res.data.mapDefs;
+      await AsyncStorage.setItem("defs", JSON.stringify(defs));
+      return defs;
+    })
+    .catch(() => {
+      ErrorAlertGenerator(title, text);
+      return [];
+    });
+  return res;
 };
 
 const getDeff = async (id) => {
-    const res = await axios.get(`https://aed.nevidkladka.org/api/defibrillators/${id}`)
-        .then(res => res)
-        .catch(err => err);
-    return res.data.defibrillator;
+  const res = await axios
+    .get(`${SERVER_URL}/${id}`)
+    .then((res) => res.data.defibrillator)
+    .catch(() => {
+      ErrorAlertGenerator(title, text);
+      return [];
+    });
+  return res;
 };
 
-export {
-    getAllDefs,
-    getDeff
-}
+export { getAllDefs, getDeff };
