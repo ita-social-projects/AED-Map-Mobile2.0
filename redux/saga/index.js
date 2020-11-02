@@ -1,6 +1,6 @@
 import {takeEvery,call,put} from 'redux-saga/effects';
 import {getAllDefs,getDeff} from '../operations';
-import {setDeffs, setDeff, setDirection, setLoader, setDeffLoader} from '../actions';
+import {setDeffs, setDeff, setDirection, setLoader, setDeffLoader, setDuration} from '../actions';
 import { GET_DEFFS_DATA, GET_DEFF, GET_DIRECTION } from '../types';
 import findWay from '../../utils/findWay';
 import getDirections from '../../utils/getDirections';
@@ -16,16 +16,18 @@ function* handleDeff ({payload}) {
     yield put(setDeffLoader(true));
     const deff = yield call(getDeff,payload);
     yield put(setDeff(deff));
+    yield put(setDuration(null));
     yield put(setDeffLoader(false))
 
 }
 
 function* handleGetDirection({payload}) {
     yield put(setLoader(true));
-    const coordinates = yield call(findWay,payload.location,payload.destLocation,payload.drivingMode);
+    const {coordinates, duration} = yield call(findWay,payload.location,payload.destLocation,payload.drivingMode);
     const direction = yield call(getDirections,coordinates);
     yield put(setLoader(false));
     yield put(setDirection(direction));
+    yield put(setDuration(duration));
 }
 
 export default function* mainSaga () {

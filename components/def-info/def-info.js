@@ -16,14 +16,16 @@ import {appConfig, popupConfig} from '../../config';
 import useNextDeff from "../../hooks/useNextDeff";
 import LoadingBar from "../loading-bar";
 import {formatPhoneNumber} from "../../utils/formatPhoneNumber";
+import getReadableDuration from "../../utils/getReadableDuration";
 
 const DefInfoContent = () => {
   const findNext = useNextDeff();
 
   const dispatch = useDispatch();
-  const {currentDeff,userLocation,loading} = useSelector((state) => ({
+  const {currentDeff,userLocation,loading, duration} = useSelector((state) => ({
     currentDeff: state.currentDeff,
     userLocation: state.userLocation,
+    duration: state.duration,
     loading: state.deffLoading}));
 
   if (loading) {
@@ -35,7 +37,7 @@ const DefInfoContent = () => {
   }
 
   const makePhoneCall = phoneNumber => {
-    let phoneNum = '';
+    let phoneNum;
     if (Platform.OS === 'android') {
       phoneNum = `tel:${phoneNumber}`;
     } else {
@@ -69,6 +71,7 @@ const DefInfoContent = () => {
             </TouchableOpacity>) : null}
         <View style={styles.title}>
           {userLocation ? <NavBar/> : null}
+          {duration && <Text style={styles.duration}>Приблизний час в дорозі: {getReadableDuration(duration)}</Text>}
           <Text style={styles.popupText}>{currentDeff.title}</Text>
         </View>
         <Text style={styles.popupText}>{currentDeff.address}</Text>
@@ -120,5 +123,10 @@ const styles = StyleSheet.create({
   loadingBar: {
     justifyContent: 'center',
     paddingVertical: 50
+  },
+  duration: {
+    color: popupConfig.textColor,
+    fontStyle: 'italic',
+    fontSize: 12,
   }
 });
