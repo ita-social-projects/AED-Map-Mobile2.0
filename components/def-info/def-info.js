@@ -80,7 +80,7 @@ const DefInfoContent = () => {
               {currentDeff.additional_information}
             </Text>
         ) : null}
-        {currentDeff.phone ? (
+        {currentDeff.phone.length ? (
             <>
               <Text style={styles.popupText}>Телефони:</Text>
               {phoneRenders}
