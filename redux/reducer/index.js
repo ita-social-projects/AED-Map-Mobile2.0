@@ -10,6 +10,7 @@ import {
     SET_SELECTED_DEFF,
     SET_LOADING,
     SET_DEFF_LOADING,
+    SET_DURATION,
 } from '../types'
 
 const initialState = {
@@ -22,6 +23,7 @@ const initialState = {
     destLocation: null,
     drivingMode: null,
     direction: null,
+    duration: null,
     loading: false,
     deffLoading: false,
     error: null,
@@ -49,7 +51,9 @@ const reducer = (state = initialState, action = {}) => {
             return {...state,drivingMode: action.payload};
         case SET_DIRECTION:
             return {...state,direction: action.payload};
-        default: 
+        case SET_DURATION:
+            return {...state,duration: action.payload};
+        default:
             return state
     }
 };

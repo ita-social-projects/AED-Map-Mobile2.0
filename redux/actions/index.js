@@ -11,7 +11,8 @@ import {
     SET_SEARCH_LOCATION,
     SET_LOADING,
     SET_DEFF_LOADING,
-    SET_SELECTED_DEFF, SET_NETWORK
+    SET_SELECTED_DEFF,
+    SET_DURATION
 } from '../types/index'
 
 const getAllDeffs = () => {
@@ -91,6 +92,13 @@ const setDirection = direction => {
     }
 };
 
+const setDuration = duration => {
+    return {
+        type: SET_DURATION,
+        payload: duration
+    }
+};
+
 const setLoader = state => {
     return {
         type: SET_LOADING,
@@ -116,6 +124,7 @@ export {
     getAllDeffs,
     getDeff,
     getDirection,
+    setDuration,
     setSearchLocation,
     setLoader,
     setDeffLoader

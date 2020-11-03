@@ -4,12 +4,15 @@ const findWay = async(from,to,moveType) => {
     try{
     const coordinates = await fetch(`https://api.mapbox.com/directions/v5/mapbox/${moveType}/${from[0]}%2C${from[1]}%3B${to[0]}%2C${to[1]}?alternatives=false&geometries=geojson&steps=false&access_token=${token}`)
     const data = await coordinates.json();
-    
+
     if (data.message) {
         throw new Error(data.message)
     }
 
-    return data.routes[0].geometry.coordinates;
+    return {
+        coordinates: data.routes[0].geometry.coordinates,
+        duration: data.routes[0].duration
+    };
     }
     catch(err) {
         throw new Error(err.message);

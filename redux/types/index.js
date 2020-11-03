@@ -16,3 +16,5 @@ export const SET_SELECTED_DEFF = 'SET_SELECTED_DEFF';
 
 export const SET_LOADING = 'SET_LOADING';
 export const SET_DEFF_LOADING = 'SET_DEFF_LOADING';
+
+export const SET_DURATION = 'SET_DURATION'
