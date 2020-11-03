@@ -13,7 +13,7 @@ export const appConfig = {
 export const searchPanelConfig = {
   paddingTop: Platform.OS === "ios" ? 20 : 20,
   placeholderColor: "#909090",
-  iconColor: isAndroidOS && "#c7c5c5",
+  iconColor: "#c7c5c5",
 };
 
 export const cameraConfig = {
