@@ -6,6 +6,7 @@ export const SERVER_URL = "https://aed.nevidkladka.org/api/defibrillators";
 
 export const appConfig = {
   backgroundColor: "#282c34",
+  backgroundActiveColor: "#4f5154",
   primarySpinnerColor: "green",
   secondarySpinnerColor: "white",
 };
