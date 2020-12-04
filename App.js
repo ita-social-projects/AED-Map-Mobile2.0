@@ -15,7 +15,7 @@ export default function App() {
   return (
     <Provider store={store}>
       <View style={styles.container}>
-      <MainHolder/>
+        <MainHolder/>
       </View>
     </Provider>
   );

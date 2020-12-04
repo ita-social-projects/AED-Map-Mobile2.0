@@ -7,31 +7,36 @@ import useMarkers from '../../hooks/useMarkers'
 import Direction from './components/direction';
 import MyPlaceButton from '../buttons/my-place-button'
 import findDestinationRegion from '../../utils/findDestinationRegion';
+import {zoomInPoint} from "../../utils/mapZoom";
 
 const MapHolder = () => {
   const markers = useMarkers();
   const dispatch = useDispatch();
-  const {currentDeff,direction,userLocation} = useSelector(state => ({
+  const {
+      currentDeff,
+      direction,
+      userLocation,
+      searchLocation
+  } = useSelector(state => ({
     currentDeff: state.currentDeff,
     direction: state.direction,
     userLocation: state.userLocation,
+    searchLocation: state.searchLocation
   }));
   let mapRef= useRef(null);
 
   useEffect(() => {
     if (mapRef.current && currentDeff) {
-      const camera = {
-        center: {
-          longitude: currentDeff.location.coordinates[0],
-          latitude: currentDeff.location.coordinates[1]
-        },
-        zoom: cameraConfig.zoom,
-        altitude: cameraConfig.altitude
-      };
-      mapRef.current.animateCamera(camera,cameraConfig.animateDuration);
+      zoomInPoint(mapRef,currentDeff.location.coordinates)
     }
   },[dispatch,currentDeff]);
-  
+
+  useEffect(() => {
+      if (mapRef.current && searchLocation) {
+          zoomInPoint(mapRef,searchLocation);
+      }
+  },[dispatch,searchLocation]);
+
   const myPlacePress = () => {
     mapRef.current.animateCamera({
       center: {
