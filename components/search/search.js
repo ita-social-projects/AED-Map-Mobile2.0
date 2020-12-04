@@ -31,11 +31,7 @@ const Search = () => {
         searchLocation[0].longitude,
         searchLocation[0].latitude,
       ];
-      const nearbyDefs = nearestDeff(deffData, searchLocationArray);
-      if (nearbyDefs.length) {
-        dispatch(setSelectedDeff(nearbyDefs[0].id));
-        dispatch(getDeff(nearbyDefs[0].id));
-      }
+
       dispatch(setSearchLocation(searchLocationArray));
     }
   };
