@@ -3,6 +3,7 @@ import { Linking, Platform } from "react-native";
 export const isAndroidOS = Platform.OS === "android";
 
 export const SERVER_URL = "https://aed.nevidkladka.org/api/defibrillators";
+export const TYPE_HERE = 'Пошук...';
 
 export const appConfig = {
   backgroundColor: "#282c34",

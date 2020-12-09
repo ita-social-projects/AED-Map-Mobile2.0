@@ -9,7 +9,7 @@ import {
 import { StyleSheet, View, Platform } from "react-native";
 import { SearchBar } from "react-native-elements";
 import nearestDeff from "../../utils/nearestDeff";
-import { appConfig, isAndroidOS, searchPanelConfig } from "../../config";
+import { appConfig, isAndroidOS, searchPanelConfig, TYPE_HERE } from "../../config";
 
 const { iconColor, paddingTop, placeholderColor } = searchPanelConfig;
 const { backgroundColor } = appConfig;
@@ -56,7 +56,7 @@ const Search = () => {
         cancelIcon={styles.icon}
         clearIcon={styles.icon}
         placeholderTextColor={isAndroidOS && placeholderColor}
-        placeholder="Type Here..."
+        placeholder={TYPE_HERE}
         cancelButtonTitle="Cancel"
         platform={Platform.OS}
         onChangeText={handleSearchChange}
